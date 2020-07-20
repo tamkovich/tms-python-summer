@@ -1,0 +1,3 @@
+str 1
+some info
+obj

@@ -138,3 +138,11 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# src
+src/lesson_07
+
+.gitignore.swp
+
+src/lesson_08/class_work
+src/HW_09
