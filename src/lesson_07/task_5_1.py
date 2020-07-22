@@ -59,7 +59,6 @@ while True:
             break
         else:
             print("Input error, try again")
-            continue
 
     # waiting next command
     wait_flag = input("enter 'exit' to exit or any command to continue:")
