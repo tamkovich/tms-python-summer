@@ -7,7 +7,6 @@ while True:
 
     if user_input == '0':  # выход из цикла
         break
-        print("quit operation")
 
     elif user_input == '+':
         z = x + y
