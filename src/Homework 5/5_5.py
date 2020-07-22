@@ -9,15 +9,16 @@ max_value = input("Enter high limit for random: ")
 
 try:
     min_value, max_value = int(min_value), int(max_value)
-    l = [random.randint(min_value, max_value) for i in range(19)]
-    print(f"Old list: {l}")
-
-    max_el = max(l)
-    print(f"Max element: {max_el}")
-
-    for i in range(19):
-        if i % 2 == 0:
-            l[i] = max_el
-    print(f"New list: {l}")
 except TypeError:
     print("U should enter numbers")
+
+l = [random.randint(min_value, max_value) for i in range(19)]
+print(f"Old list: {l}")
+
+max_el = max(l)
+print(f"Max element: {max_el}")
+
+for i in range(19):
+    if i % 2 == 0:
+        l[i] = max_el
+print(f"New list: {l}")
