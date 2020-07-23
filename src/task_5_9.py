@@ -15,7 +15,7 @@ try:
     m = abs(int(input('Enter some number:')))
     n = abs(int(input('Enter some number')))
 except ValueError:
-    print("m and m must be intenger")
+    print("m and n must be intenger")
 m = min(m, n)
 
 for num in range(m, n + 1):
