@@ -59,7 +59,6 @@ def pound_to_kg(x: int) -> float:
     y = x * .454
     return round(y, 3)
 
-
 def kg_to_pound(x: int) -> float:
     '''
     функция конвертирует килограммы в фунты (с округлением до пяти знаков после запятой)
@@ -68,7 +67,6 @@ def kg_to_pound(x: int) -> float:
     '''
     y = x * 2.205
     return round(y, 3)
-
 
 def oz_to_gr(x: int) -> float:
     '''
@@ -79,7 +77,6 @@ def oz_to_gr(x: int) -> float:
     y = x * 28.35
     return round(y, 3)
 
-
 def gr_to_oz(x: int) -> float:
     '''
     функция конвертирует граммы в унции (с округлением до пяти знаков после запятой)
@@ -88,7 +85,6 @@ def gr_to_oz(x: int) -> float:
     '''
     y = x * 0.0353
     return round(y, 3)
-
 
 def hallon_to_litr(x: int) -> float:
     '''
@@ -99,7 +95,6 @@ def hallon_to_litr(x: int) -> float:
     y = x * 4.546
     return round(y, 3)
 
-
 def litr_to_hallon(x: int) -> float:
     '''
     функция конвертирует литры в галлоны (с округлением до пяти знаков после запятой)
@@ -109,7 +104,6 @@ def litr_to_hallon(x: int) -> float:
     y = x * 0.264
     return round(y, 3)
 
-
 def pint_to_litr(x: int) -> float:
     '''
     функция конвертирует амер пинты в литры (с округлением до пяти знаков после запятой)
@@ -118,7 +112,6 @@ def pint_to_litr(x: int) -> float:
     '''
     y = x * .473
     return round(y, 3)
-
 
 def litr_to_pint(x: int) -> float:
     '''
