@@ -8,7 +8,7 @@ mlist = [randint(0, 100) for i in range(25)]
 counter = 0
 size = len(mlist)
 for index, value in enumerate(mlist):
-    if value == (size - 1):
+    if index == (size - 1):
         break
     if mlist[index - 1] >= value < mlist[index + 1]:
         counter += 1

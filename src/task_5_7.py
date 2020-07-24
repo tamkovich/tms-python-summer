@@ -5,9 +5,7 @@ from random import randint
 matrix = [[randint(0, 100) for i in range(4)] for i in range(4)]
 print(matrix)
 for i, value in enumerate(matrix):
-    tmp = matrix[i][i]
-    tmp_max = value.index(max(value))
-    matrix[i][i] = max(value)
-    matrix[i][tmp_max] = tmp
+    index = value.index(max(value))
+    matrix[i][i], matrix[i][index] = matrix[i][index], matrix[i][i]
 
 print(matrix)

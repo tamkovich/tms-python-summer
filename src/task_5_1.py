@@ -30,7 +30,6 @@ def calc(x, y):
             break
         else:
             print("Wrong operation!")
-            continue
 
 
 while True:
