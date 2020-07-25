@@ -27,8 +27,11 @@ git checkout -b your_name_and_lesson_number
 git branch your_name_and_lesson_number
 git checkout your_name_and_lesson_number
 ```
-Например, ``` git checkout -b tamkovich-2```
+Например, 
+``` git checkout -b tamkovich-2```
+
 5. Выполняем домашнее задание или копируем уже готовое в папку **src/**
+
 6. Фиксируем созданные файлы в git
 ```
 git add .
