@@ -49,6 +49,7 @@ git add src/*.py
 git commit -m "HW<NO>: Name LastName"
 ```
 Например, ``` git commit -m "HW1: Denis Tamkovich"```
+
 8. После выполнения домашнего задания, публекуем командой 
 ```
 git push origin your_name_and_lesson_number
