@@ -113,6 +113,8 @@ while True:
         if int(choose) not in range(1, 13):
             print('input in range 1-12')
             continue
+        elif choose == "0":
+            break
         number = float(input('input number: '))
     except ValueError:
         print('error input!')
