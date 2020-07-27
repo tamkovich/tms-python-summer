@@ -55,3 +55,27 @@ git commit -m "HW<NO>: Name LastName"
 git push origin your_name_and_lesson_number
 ```
 9. Создаем Pull Request (отправляем домашку на проверку)
+
+## Что делать если предыдущая домашка остается на ветке?
+
+1. Добавляете ссылку исходного репозитория
+```
+git remote add upstream https://github.com/tamkovich/tms-python-summer.git
+```
+2. Создаете временную ветку
+```
+git checkout -b tmp-branch
+```
+3. Удаляете master
+```
+git branch -D master
+```
+4. Качаете кэш веток с исходного репозитория
+```
+git fetch upstream
+```
+5. Переключаетечь на master с исходного репозитория
+```
+git checkout upstream/master
+```
+6. Пункты от 4-ого до конца из раздела **Как добавить домашку?**
