@@ -1,8 +1,3 @@
-"""
-Дана целочисленная квадратная матрица. Найти в каждой строке наи-
-больший элемент и поменять его местами с элементом главной диагонали.
-"""
-
 import random
 
 a = []  # квадратная матрица
@@ -16,7 +11,14 @@ for i in range(n):
 print(f'Enter matrix:\n{a}')
 
 for i, el in enumerate(a):
+    # tmp = a[i][i]  # элементы диагонали матрицы
     tmp_max = el.index(max(el))  # индекс максимального элемента в строке
+    # a[i][i] = max(el)
+    # a[i][tmp_max] = tmp
+
     a[i][i], a[i][tmp_max] = max(el), a[i][i]
 
+
+
 print(f'new matrix:\n{a}')
+
