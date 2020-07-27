@@ -54,6 +54,10 @@ git commit -m "HW<NO>: Name LastName"
 ```
 git push origin your_name_and_lesson_number
 ```
+или (если хотите перетереть старые изменения)
+```
+git push origin -f your_name_and_lesson_number
+```
 9. Создаем Pull Request (отправляем домашку на проверку)
 
 ## Что делать если предыдущая домашка остается на ветке?
