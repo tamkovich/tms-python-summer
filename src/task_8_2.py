@@ -2,8 +2,12 @@ a = ['qwert', 'wwd', 'wew']
 
 
 def is_palindrome(string):
-    reversed_string = string[::-1]
-    return reversed_string == string
+    """
+    Return True if string is palindrome
+    :param string: input string
+    :return: return boolean
+    """
+    return string[::-1] == string
 
 
 for i in a:
