@@ -29,7 +29,7 @@ def sin1(x: float, e: list) -> float:
     return result
 
 try:
-    x = int(input(":"))
+    x = float(input(":"))
 except ValueError:
     print("x is no digit!")
 
