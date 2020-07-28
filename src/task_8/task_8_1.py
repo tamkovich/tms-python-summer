@@ -16,7 +16,7 @@ def fact_2(n: int) -> int:
     if n % 2 != 0:
         for i in range(1, n+1, 2):
             count *= i
-    elif n % 2 == 0:
+    else:
         for i in range(2, n+1, 2):
             count *= i
     return count

@@ -13,11 +13,7 @@ def palindrom(x: list) -> list:
     :param x: list
     :return: new list
     """
-    palindrom_words = []
-    for i in x:
-        if i == i[::-1]:
-            palindrom_words.append(i)
-    return palindrom_words
+    return [i for i in x if i == i[::-1]]
 
 words = ['шалаш', 'утка', 'кабак']
 print(palindrom(words))
