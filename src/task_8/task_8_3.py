@@ -6,6 +6,7 @@ sin( x ) = x – x ^3 /(3!) + x^ 5 /(5!) – ... + (–1) ^ n · x^( 2·n+1) /((
 Sin1 найти приближенное значение синуса для данного x при шести данных
 ε.
 """
+
 import math
 def sin1(x: float, e: int) -> float:
     """
@@ -28,9 +29,7 @@ def sin1(x: float, e: int) -> float:
                 break
     return result
 
-print(sin1(3.14, 0.01))
-
-x = int(input(":"))
+x = float(input("Enter value:"))
 lis = [0.5, 0.1, 0.01, 0.001, 0.0001, 0.00001]
 for i in lis:
     print(f'sin от {x} = {sin1(x, i)} при точности {i}')

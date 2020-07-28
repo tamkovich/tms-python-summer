@@ -4,6 +4,7 @@
 справа налево. (Определить функцию, позволяющую распознавать слова
 палиндромы.)
 """
+
 def palindrom(x: list) -> list:
     """
     Функция по определению слов палиндромов.
@@ -18,7 +19,5 @@ def palindrom(x: list) -> list:
             palindrom_words.append(i)
     return palindrom_words
 
-
 words = ['шалаш', 'утка', 'кабак']
 print(palindrom(words))
-
