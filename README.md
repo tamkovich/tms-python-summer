@@ -1,4 +1,4 @@
-# TMS-python-autumn
+# TMS-python-summer
 Курс Python разработчик
 
 ## Как добавить домашку?
