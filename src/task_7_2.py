@@ -62,3 +62,4 @@ while True:
     except TypeError:
         print("Некоректный ввод.")
         continue
+
