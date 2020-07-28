@@ -89,4 +89,4 @@ while True:
         y = int(input("дюймов: "))
         duimvsant(y)
         print()
-    elif x ==2:
+    elif x == 2:
