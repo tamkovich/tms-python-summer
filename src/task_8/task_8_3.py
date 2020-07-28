@@ -29,11 +29,10 @@ def sin1(x: float, e: list) -> float:
     return result
 
 try:
-    print(sin1(10, 0.01))
+    x = int(input(":"))
 except ValueError:
     print("x is no digit!")
 
-x = int(input(":"))
 lis = [0.5, 0.1, 0.01, 0.001, 0.0001, 0.00001]
 for i in lis:
     print(f'sin от {x} = {sin1(x, i)} при точности {i}')
