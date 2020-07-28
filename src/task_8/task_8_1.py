@@ -12,6 +12,7 @@ def fact_2(n: int) -> int:
     :param n: int > 0
     :return: int
     """
+
     count = 1
     if n % 2 != 0:
         for i in range(1, n+1, 2):
