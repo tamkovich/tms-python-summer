@@ -15,7 +15,6 @@ def sin1(x: float, e: int) -> float:
     :param e > 0: float
     :return: float
     """
-
     if e <= 0:
         print("Error! e must be > 0")
     else:
