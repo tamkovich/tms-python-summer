@@ -107,15 +107,15 @@ def liters_to_pints(a: int) -> float:
 
 
 while True:
-
     try:
         choose = input('\nChoose operation: ')
-        if int(choose) not in range(1, 13):
+        if choose == "0":
+            break
+        elif 0 < int(choose) < 13:
+            number = float(input('input number: '))
+        else:
             print('input in range 1-12')
             continue
-        elif choose == "0":
-            break
-        number = float(input('input number: '))
     except ValueError:
         print('error input!')
         continue
@@ -134,5 +134,4 @@ while True:
         "12": liters_to_pints,
     }
     result = switch_case.get(choose)(number)
-    print(result)
-
+    print(round(result, 3))
