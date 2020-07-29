@@ -5,7 +5,7 @@
 10. Литры в галлоны   11. Пинты в литры     12. Литры в пинты'''
 
 def inch_cm(value: float) -> float:
-    # Дюймы в сантиметры
+    """Дюймы в сантиметры"""
     return value * 2.54
 
 def cm_inch(value: float) -> float:
@@ -51,4 +51,3 @@ def pints_l(value: float) -> float:
 def l_pints(value: float) -> float:
     # Литры в пинту
     return value / 2.113
-
