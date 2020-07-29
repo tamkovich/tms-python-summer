@@ -2,10 +2,7 @@ from math import sin
 
 
 def sin1(x: float, e: float) -> float:
-
-    """
-
-    The function calculate sin(x, e)
+    """The function calculate sin(x, e)
 
     :param x: Value in sin(x)
     :param e: Accuracy of calculate
