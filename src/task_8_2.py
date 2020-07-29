@@ -8,9 +8,8 @@ list_of_words = ["dog", "pop", "cat"]
 def palindrome(word: str) -> str:
     return word[::-1]
 
-for words in list_of_words:
+for word in list_of_words:
     if words == palindrome(words):
         print(f"Это палиндром.\n{words} == {palindrome(words)}")
     else:
         print(f"Это не палиндром.\n{words} != {palindrome(words)}")
-
