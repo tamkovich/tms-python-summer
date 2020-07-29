@@ -4,10 +4,7 @@
 факториалы пяти данных целых чисел"""
 
 def fact2(n: int) -> int:
-    if n <= 0:
-        return 1
-    else:
-        return fact2(n - 2) * n
+    return 1 if n <= 0 else fact2(n - 2) * n
 
 while True:
     number = input("Введите число (для выхода введите -1): ")
@@ -20,4 +17,3 @@ while True:
         print("Некоректный ввод")
 
     print(f"Число: {number}\n{number}!! = {fact2(number)}")
-
