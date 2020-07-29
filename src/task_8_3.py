@@ -1,4 +1,4 @@
-from math import sin, pi, factorial
+from math import sin
 
 
 def sin1(x: float, e: float) -> float:
