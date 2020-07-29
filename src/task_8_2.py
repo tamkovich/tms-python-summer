@@ -1,7 +1,7 @@
 a = ['qwert', 'wwd', 'wew']
 
 
-def is_palindrome(string):
+def is_palindrome(string: str) -> str:
     """
     Return True if string is palindrome
     :param string: input string
