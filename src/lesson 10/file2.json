@@ -1,0 +1,7 @@
+{
+    "some_str": "string", 
+    "some_array": [1,2,3,4], 
+    "some_bool": true, 
+    "some_null": null, 
+    "some_matrix": [[1,2],[3,4]]
+}
