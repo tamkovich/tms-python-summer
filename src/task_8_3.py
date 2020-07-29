@@ -2,12 +2,14 @@ from math import sin
 
 
 def sin1(x: float, e: float) -> float:
+
     """
     The function calculate sin(x, e)
     :param x: Value in sin(x)
     :param e: Accuracy of calculate
     :return: Result of sin(x, e)
     """
+    
     result_sum = x  # начальное значение функции(нулевой член ряда)
     mult_x = x  # нулевое значение числителя члена ряда
     mult_denominator = 1  # то же знаменателя
