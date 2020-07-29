@@ -15,7 +15,8 @@ def sin1(x: float, e: float) -> float:
     counter = 1  # первый член
     while abs(term) > e:  # пока очередной больше точности
         mult_x *= -x ** 2  # домножаем числитель на  -x^2
-        mult_denominator *= 2 * counter * (2 * counter + 1)  # домножаем знаменатель до очередного факториала
+        # домножаем знаменатель до очередного факториала:
+        mult_denominator *= 2 * counter * (2 * counter + 1)
         term = mult_x / mult_denominator  # вычисляем очередной член
         result_sum += term  # считаем сумму
         counter += 1  # увеличиваем счетчик
