@@ -15,24 +15,23 @@ def sin1(x: float, e: list) -> float:
     :return: float. возвращает значение синуса в радианах, от заданного x с точностью e.
     """
 
-    if e <= 0:
-        print("Error! e must be > 0")
-    else:
-        result = 0
-        n = 0
-        while True:
-            tmp = ((-1)**n * x**(2*n + 1))/math.factorial(2*n+1)
-            result += tmp
-            n += 1
-            if abs(tmp) <= e:
-                break
+    result = 0
+    n = 0
+    while True:
+        tmp = ((-1)**n * x**(2*n + 1))/math.factorial(2*n+1)
+        result += tmp
+        n += 1
+        if abs(tmp) <= abs(e):
+            break
     return result
 
 try:
     x = float(input(":"))
 except ValueError:
     print("x is no digit!")
-
-lis = [0.5, 0.1, 0.01, 0.001, 0.0001, 0.00001]
-for i in lis:
-    print(f'sin от {x} = {sin1(x, i)} при точности {i}')
+try:
+    lis = [0.5, 0.1, 0.01, 0.001, 0.0001, 0.00001]
+    for i in lis:
+        print(f'sin от {x} = {sin1(x, i)} при точности {i}')
+except:
+    print("Please enter x - digit")
