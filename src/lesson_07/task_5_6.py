@@ -3,7 +3,12 @@
 # больше предыдущего).
 
 
-def counter(input_list):
+def counter(input_list) -> int:
+    """
+    counts number of regions in 'input_list' which contains a monotone sequence
+    :param input_list: input list which contains integer numbers
+    :return seq_count: count of regions
+    """
     size = len(input_list)
     current = 0
     seq_count = 0

@@ -10,6 +10,11 @@ class Space_and_time():
     place = None
 
     def __init__(self, time: datetime.time, place: str):
+        """
+        fills 'time' and 'place' fields of 'Space_and_time' class
+        :param time: time in 'hours : minutes : seconds' format
+        :param place: place in 'string' format
+        """
         self.time = time
         self.place = place
 
@@ -20,13 +25,27 @@ class TrainList():
     destination = {}
 
     def add_train(self, train_num: int, in_departure: Space_and_time, in_destination: Space_and_time):
+        """
+        add train info to 'train_list'
+        :param train_num: train number
+        :param in_departure: departure place and time
+        :param in_destination: destination place and time
+        """
         self.train_list[train_num] = [{in_departure.place: in_departure.time},
                                       {in_destination.place: in_destination.time}]
 
     def show_train_list(self):
+        """
+        print train_list field
+        """
         print(self.train_list)
 
     def get_travel_time(self, train_num: int):
+        """
+        returns time interval between departure and destination time of train with number 'train_num'
+        :param train_num: number of train
+        :return: time interval
+        """
         train = self.train_list[train_num]
         train_departure, train_destination = train
         t0 = list(train_departure.values())
@@ -36,9 +55,17 @@ class TrainList():
             str(t0.__getitem__(0)), '%H:%M:%S')
 
     def list_len(self):
+        """
+        returns 'train_list' fields length
+        """
         return len(self.train_list)
 
     def find_more_delta(self, delta: datetime.timedelta):
+        """
+        find time intervals between departure and destination time which more then 'delta'
+        :param delta: time interval
+        :return: train list with trains which have travel time more then 'delta'
+        """
         result = {}
         for key in self.train_list.keys():
             if self.get_travel_time(key) > delta:

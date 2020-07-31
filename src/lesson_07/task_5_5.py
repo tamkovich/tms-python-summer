@@ -3,14 +3,15 @@
 
 
 def task(input_list):
-    max = input_list[0]
-    for i in range(len(input_list)):
-        if max < input_list[i]:
-            max = input_list[i]
+    """
+    finds max element in 'input_list' and replaces them all odd elements
+    :param input_list: input list
+    """
+    max_val = max(input_list)
 
     for i in range(len(input_list)):
         if input_list[i] % 2 == 0:
-            input_list[i] = max
+            input_list[i] = max_val
 
 
 import random

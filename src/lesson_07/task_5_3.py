@@ -3,6 +3,11 @@
 # пары дружественных чисел, лежащих в диапазоне от 200 до 300.
 
 def find_sum_divisors(x: int) -> int:
+    """
+    finds sum of all dividers of number 'x' nd return a sorted list with them
+    :param x: number for which dividers must found
+    :return result_sum: sum of all dividers of number 'x'
+    """
     result_sum = 0
     y = 1
     while y <= x ** 0.5:
