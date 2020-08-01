@@ -22,4 +22,3 @@ for line in text:
 
     with open("new_task_10_4.txt", "a") as f:
         f.write(new_str)
-
