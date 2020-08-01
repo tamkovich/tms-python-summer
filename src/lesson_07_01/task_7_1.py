@@ -14,8 +14,14 @@
 # Примечание: функция принимает на вход число и возвращает конвертированное число
 
 def inch_to_cm(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts inch to cm; if x < 0 return None
+    :param x: length in inch
+    :return: length in cm
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 2.54
     except:
@@ -23,8 +29,14 @@ def inch_to_cm(x: float) -> float:
 
 
 def cm_to_inch(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts cm to inch; if x < 0 return None
+    :param x: length in cm
+    :return: length in inch
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 2.54
     except:
@@ -32,8 +44,14 @@ def cm_to_inch(x: float) -> float:
 
 
 def mile_to_km(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts mile to km; if x < 0 return None
+    :param x: length in mile
+    :return: length in km
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 1.60934
     except:
@@ -41,8 +59,14 @@ def mile_to_km(x: float) -> float:
 
 
 def km_to_mile(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts km to mile; if x < 0 return None
+    :param x: length in km
+    :return: length in mile
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 1.60934
     except:
@@ -50,8 +74,14 @@ def km_to_mile(x: float) -> float:
 
 
 def funt_to_kg(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts funt to kg; if x < 0 return None
+    :param x: weight in funt
+    :return: weight in kg
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 0.409517
     except:
@@ -59,8 +89,14 @@ def funt_to_kg(x: float) -> float:
 
 
 def kg_to_funt(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts kg to funt; if x < 0 return None
+    :param x: weight in kg
+    :return: weight in funt
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 0.409517
     except:
@@ -68,8 +104,14 @@ def kg_to_funt(x: float) -> float:
 
 
 def ounce_to_gram(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts ounce to gram; if x < 0 return None
+    :param x: weight in ounce
+    :return: weight in gram
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 28.3495
     except:
@@ -77,8 +119,14 @@ def ounce_to_gram(x: float) -> float:
 
 
 def gram_to_ounce(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts gram to ounce; if x < 0 return None
+    :param x: weight in gram
+    :return: weight in ounce
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 28.3495
     except:
@@ -86,8 +134,14 @@ def gram_to_ounce(x: float) -> float:
 
 
 def gallon_to_litre(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts gallon to litre; if x < 0 return None
+    :param x: volume in gallon
+    :return: volume in litre
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 3.78541
     except:
@@ -95,8 +149,14 @@ def gallon_to_litre(x: float) -> float:
 
 
 def litre_to_gallon(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts litre to gallon; if x < 0 return None
+    :param x: volume in litre
+    :return: volume in gallon
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 3.78541
     except:
@@ -104,8 +164,14 @@ def litre_to_gallon(x: float) -> float:
 
 
 def pint_to_litre(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts pint to litre; if x < 0 return None
+    :param x: volume in pint
+    :return: volume in litre
+    """
+    if x < 0:
+        return None
+
     try:
         return x * 0.473176
     except:
@@ -113,10 +179,15 @@ def pint_to_litre(x: float) -> float:
 
 
 def litre_to_pint(x: float) -> float:
-	if x < 0:
-		return None
+    """
+    converts litre to pint; if x < 0 return None
+    :param x: volume in litre
+    :return: volume in pint
+    """
+    if x < 0:
+        return None
+
     try:
         return x / 0.473176
     except:
         return None
-
