@@ -4,12 +4,11 @@
 получить номер первой строки, в которой эти файлы
 отличаются друг от друга."""
 
-check, tmp = True, 0
-with open("task_10_6_1.txt", "r") as f:
-    text1 = f.readlines()
+import open_file
 
-with open("task_10_6_2.txt", "r") as f:
-    text2 = f.readlines()
+check, tmp = True, 0
+text1 = open_file.file_open("task_10_6_1.txt", "r")
+text2 = open_file.file_open("task_10_6_2.txt", "r")
 
 if len(text1) == len(text2):
     length = len(text1)

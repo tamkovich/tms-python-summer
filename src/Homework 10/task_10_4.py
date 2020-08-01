@@ -3,8 +3,9 @@
 его строки с заменой в них символа 0 на символ 1 и
 наоборот."""
 
-with open("task_10_4.txt", "r") as f:
-    text = f.readlines()
+import open_file
+
+text = open_file.file_open("task_10_4.txt", "r")
 
 # для очистки файла
 f = open("new_task_10_4.txt", "w")

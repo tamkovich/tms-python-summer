@@ -2,7 +2,8 @@
 """Создать матрицу случайных чисел и сохранить ее в json
 файл. После прочесть ее, обнулить все четные элементы
 и сохранить в другой файл"""
-import json, random
+import json
+import random
 
 size = input("Enter size of matrix: ")
 min_value = input("Enter min value for random: ")
