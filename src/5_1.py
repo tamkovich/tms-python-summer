@@ -40,5 +40,6 @@ while True:
         else:
             print("U entered other operator")
             continue
+            print("test")
 else:
     print("x and y should be numbers")
