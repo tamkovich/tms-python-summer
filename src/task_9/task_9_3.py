@@ -5,24 +5,24 @@
 """
 
 
-def decor_even(func):
+def decor_del_even(func):
     """
     декоратор функции.
     принимает на вход функцию, принимающую на вход список,
-    оставляет в списке только четные по индексу элементы
+    удаляет все четные элементы из списка.
     :param func: функция по списку из чисел
     :return other func: функция по списку из чисел
-    (только четные индексы)
+    (остаются только четные элементы)
     """
 
-    def is_even(x: list):
-        lis = [i for i in x if x.index(i) % 2 == 0]
+    def del_even(x: list):
+        lis = [i for i in x if i % 2 != 0]
         return func(lis)
 
-    return is_even
+    return del_even
 
 
-@decor_even
+@decor_del_even
 def list_x2(x: list) -> list or str:
     """
     принимат на вход списко чисел.

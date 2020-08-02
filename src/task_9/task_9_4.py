@@ -32,12 +32,12 @@ def f_sqw(a: int, b: int, c: int) -> str:
     if D > 0:
         x_1 = (-b + D ** .5)/(2*a)
         x_2 = (-b - D ** .5)/(2*a)
-        result = f'x1 = {round(x_1, 2)}, x2 = {round(x_2, 2)}'
+        result = (x_1, x_2)
     elif D == 0:
         x = -b/(2*a)
-        result = f'x = {round(x, 2)}'
+        result = x
     else:
-        result = 'нет корней'
+        result = None
     return result
 
 print(f_sqw(10, 20, 6))
