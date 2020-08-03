@@ -20,5 +20,3 @@ if csv_utils.purchase_of_product("task_10_8.csv", 10, "milk"):
     print("\nCheck file")
 else:
     print("\nError")
-
-
