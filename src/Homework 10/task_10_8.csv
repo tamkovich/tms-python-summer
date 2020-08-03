@@ -1,4 +1,4 @@
 name,price,quantity,comment
-milk,100,100,tmp
-bread,100,100,tmp
-chocolate,100,100,tmp
+milk,100,80,tmp
+bread,200,80,tmp
+chocolate,300,90,tmp
