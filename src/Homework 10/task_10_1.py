@@ -6,7 +6,7 @@ c) его первые 5 строк;
 d) его строки с s1-й по s2-ю;
 e) весь файл."""
 
-size = 0
+size, list_of_text = 0, []
 with open("task_10_1.txt", "r") as f:
     while True:
         line = f.readline()
@@ -18,10 +18,11 @@ with open("task_10_1.txt", "r") as f:
     print(f"{f.readline()} - 1st string")
 
 with open("task_10_1.txt", "r") as f:
-    print(f"\n{f.readlines()[4]} - 5th string")
+    list_of_text = f.readlines()
+    print(f"\n{list_of_text[4]} - 5th string")
 
 with open("task_10_1.txt", "r") as f:
-    print(f"\n{''.join(f.readlines()[0:5])} - 1st five string\n")
+    print(f"\n{''.join(list_of_text[0:5])} - 1st five string\n")
 
 with open("task_10_1.txt", "r") as f:
     s1 = input("Enter low value: ")
@@ -35,10 +36,10 @@ with open("task_10_1.txt", "r") as f:
         exit()
 
     if s1 < s2 < size:
-        print(f"\n{''.join(f.readlines()[s1 - 1:s2])} "
+        print(f"\n{''.join(list_of_text[s1 - 1:s2])} "
               f"- text from {s1} to {s2} strings\n")
     elif s1 < size < s2:
-        print(f"\n{''.join(f.readlines()[s1 - 1:size])} "
+        print(f"\n{''.join(list_of_text[s1 - 1:size])} "
               f"- text from {s1} to {size} strings\n")
     else:
         print("s1 must be less then s2 and"

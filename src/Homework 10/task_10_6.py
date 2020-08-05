@@ -10,7 +10,9 @@ check, tmp = True, 0
 text1 = open_file.file_open("task_10_6_1.txt", "r")
 text2 = open_file.file_open("task_10_6_2.txt", "r")
 
-if len(text1) == len(text2):
+if len(text1) != len(text2):
+    print("Files have the different sizes")
+else:
     length = len(text1)
     for i in range(length):
         if text1[i] != text2[i]:
@@ -23,5 +25,3 @@ if len(text1) == len(text2):
     else:
         print("The files are not the same")
         print(f"They differ in {tmp} line")
-else:
-    print("Files have the different sizes")
