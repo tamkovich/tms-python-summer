@@ -12,14 +12,10 @@ f = open("new_task_10_4.txt", "w")
 f.close()
 
 for line in text:
-    list_of_line = []
-    for symbol in line:
-        if symbol == "0":
-            symbol = "1"
-        elif symbol == "1":
-            symbol = "0"
-        list_of_line.append(symbol)
-    new_str = "".join(list_of_line)
+    list_of_lines = []
+    for el in line:
+        list_of_lines.append("0" if el == "1" else "1" if el == "0" else el)
+    new_str = "".join(list_of_lines)
 
     with open("new_task_10_4.txt", "a") as f:
         f.write(new_str)

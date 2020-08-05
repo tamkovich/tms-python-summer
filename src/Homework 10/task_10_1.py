@@ -32,6 +32,7 @@ with open("task_10_1.txt", "r") as f:
         s1, s2 = int(s1), int(s2)
     except ValueError:
         print("s1 or s2 not a number")
+        exit()
 
     if s1 < s2 < size:
         print(f"\n{''.join(f.readlines()[s1 - 1:s2])} "
