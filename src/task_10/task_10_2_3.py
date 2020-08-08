@@ -7,10 +7,10 @@
 """
 
 
-while(True):
+while True:
         f = open('test2.txt', 'a+')
         b = input("enter text" '\n')
         if (b == "X") or (b == "x"):
+            f.close()
             break
         f.write(b + '\n')
-        f.close()
