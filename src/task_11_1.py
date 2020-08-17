@@ -4,20 +4,22 @@
 конструктор, геттеры и сеттеры для каждого атрибута, два метода
 """
 
-
-
 class Tv:
     def show(self):
-        print('shows tv Shows')
+        print("shows tv Shows")
+
     def sound(self):
-        print('makes sounds')
+        print("makes sounds")
+
     def __init__(self, quality, price, size):
         self.__quality = quality
         self.__price = price
         self.__size = size
+
     @property
     def x(self):
         return self.__quality
+
     @x.setter
     def quality(self, quality):
         self.__quality = quality
@@ -37,18 +39,24 @@ class Tv:
     @size.setter
     def size(self, size):
         self.__size = size
+
+
 class Languages:
     def speak(self):
-        print('word')
+        print("word")
+
     def read(self):
-        print('text')
+        print("text")
+
     def __init__(self, sounds, letters, phrase):
         self.__sounds = sounds
         self.__letters = letters
         self.__phrase = phrase
+
     @property
     def y(self):
         return self.__sounds
+
     @y.setter
     def sounds(self, sounds):
         self.__sounds = sounds
@@ -68,18 +76,24 @@ class Languages:
     @phrase.setter
     def phrase(self, phrase):
         self.__phrase = phrase
+
+
 class Cars:
     def drive(self):
-        print('*driving*')
+        print("*driving*")
+
     def drift(self):
-        print('*drifting*')
+        print("*drifting*")
+
     def __init__(self, colour, appereance, speed):
         self.__appereance = appereance
         self.__colour = colour
         self.__speed = speed
+
     @property
     def fun(self):
         return self.__colour
+
     @fun.setter
     def colour(self, colour):
         self.__colour = colour
@@ -99,18 +113,24 @@ class Cars:
     @speed.setter
     def speed(self, speed):
         self.__speed = speed
+
+
 class Human:
     def live(self):
-        print('you r alive')
+        print("you r alive")
+
     def death(self):
-        print('you r dead')
+        print("you r dead")
+
     def __init__(self, man, woman, kid):
         self.__man = man
         self.__woman = woman
         self.__kid = kid
+
     @property
     def man(self):
         return self.__man
+
     @man.setter
     def man(self, man):
         self.__man = man
@@ -130,18 +150,24 @@ class Human:
     @kid.setter
     def kid(self, kid):
         self.__kid = kid
+
+
 class Plant:
     def grow(self):
-        print('plant grows')
+        print("plant grows")
+
     def give(self):
-        print('plant gives seeds')
+        print("plant gives seeds")
+
     def __init__(self, tree, grass, bush):
         self.__tree = tree
         self.__grass = grass
         self.__bush = bush
+
     @property
     def tree(self):
         return self.__tree
+
     @tree.setter
     def quality(self, tree):
         self.__tree = tree
