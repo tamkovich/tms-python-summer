@@ -3,4 +3,8 @@ def test(a: int) -> int:
     return a
 
 
+def add(x, y):
+    return x + y
+
+
 print(test(10))
