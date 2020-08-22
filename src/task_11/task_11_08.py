@@ -54,5 +54,5 @@ class Dog:
         self.__weight = weight
 
 
-dog1 = Dog("Ali", 12, 'black', "dog", 14)
+dog1 = Dog("Ali", 12, 'black', "Doberman", 14)
 print(dog1.name, dog1.color, dog1.weight, dog1.age, dog1.breed, sep="\n")

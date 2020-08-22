@@ -81,7 +81,7 @@ class President:
 # new_President.go_away()
 # new_President.name = "Sveta"
 # new_President.party = "Alternate"
-# new_President = President('Sveta', 37, 'famale', 'Alternate', 4000, 'Mazir', 1)
+# new_President = President('Sveta', 37, 'female', 'Alternate', 4000, 'Mazir', 1)
 # print(new_President.__dict__)
 
 class Footballer:
