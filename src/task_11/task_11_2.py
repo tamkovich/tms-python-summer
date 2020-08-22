@@ -59,8 +59,8 @@ class Car:
 
     def increase_speed(self):
         self.speed += 5
-        if self.speed > self.speed - 5:
-            self.speed = self.speed
+        if self.speed > self.max_speed - 5:
+            self.speed = self.max_speed
 
     def reduce_speed(self):
         self.speed -= 5
