@@ -4,6 +4,7 @@
 Все change методы удалить
 """
 
+
 class Dog:
     """создан класс Собака"""
     def __init__(self, name, age, color, breed, weight):

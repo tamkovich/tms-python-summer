@@ -5,9 +5,12 @@
 разворот(изменение знака скорости). Все атрибуты приватные.
 """
 
+
 class Car:
     """Created class Car"""
-    def __init__(self, mark: str, model: str, year: str, max_speed: int, speed: int = 0):
+    def __init__(
+            self, mark: str, model: str, year: str, max_speed: int, speed: int = 0
+    ):
         self.__mark = mark
         self.__model = model
         self.__year = year
@@ -66,14 +69,14 @@ class Car:
 
     def stop(self):
         self.speed = 0
-        print(f'car stopped')
+        print('car stopped')
 
     def display_speed(self):
         print(f"speed now: {self.speed} km/h")
 
     def reversal(self):
         self.speed = -self.speed
-        print(f'car is going in another side now')
+        print('car is going in another side now')
 
 
 car1 = Car('Audi', "TT", "2010", 250, 110)

@@ -3,6 +3,8 @@
 должен содержать минимум три приватных атрибута, конструктор, геттеры
 и сеттеры для каждого атрибута, два метода.
 """
+
+
 class President:
     """создан класс Президент"""
     def __init__(self, name, age, sex, party, budget, city, term):
@@ -81,7 +83,9 @@ class President:
 # new_President.go_away()
 # new_President.name = "Sveta"
 # new_President.party = "Alternate"
-# new_President = President('Sveta', 37, 'female', 'Alternate', 4000, 'Mazir', 1)
+# new_President = President(
+#     'Sveta', 37, 'female', 'Alternate', 4000, 'Mazir', 1
+# )
 # print(new_President.__dict__)
 
 class Footballer:
@@ -156,7 +160,9 @@ class Footballer:
         self.number = number
 
 
-# footballer1 = Footballer("Mane", 28, "male", "Senegal", "FC Liverpool", '9', 110000)
+# footballer1 = Footballer(
+#     "Mane", 28, "male", "Senegal", "FC Liverpool", '9', 110000
+# )
 # footballer1.injury()
 # footballer1.out()
 # footballer1.change_number('11')
@@ -225,7 +231,7 @@ class CarSell:
         self.price = price
 
     def discount(self, discount):  # скидка в процентах
-        self.price *= (100-discount)/100
+        self.price *= (100-discount) / 100
 
     def change_price(self, price):
         self.price = price
@@ -237,7 +243,9 @@ class CarSell:
 
 class House:
     """создан класс дом"""
-    def __init__(self, height, width, length, state, numb_floors, years_old, elevators):
+    def __init__(
+            self, height, width, length, state, numb_floors, years_old, elevators
+    ):
 
         self.__height = height
         self.__width = width
@@ -323,7 +331,9 @@ class House:
 
 class WarElf:
     """создан класс боевой ельф"""
-    def __init__(self, name, squad, rank, health, power, mana, experience, money):
+    def __init__(
+            self, name, squad, rank, health, power, mana, experience, money
+    ):
 
         self.__name = name
         self.__squad = squad
@@ -391,10 +401,10 @@ class WarElf:
     def damage(self, XP):
         self.health -= XP
         if self.health in [0, 3]:
-            print(f'This unit will die soon')
+            print('This unit will die soon')
             print(f'This unit have {self.health} XP')
         elif self.health < 1:
-            print(f'This unit died')
+            print('This unit died')
         else:
             print(f'This unit have {self.health} XP')
 
@@ -411,9 +421,9 @@ class WarElf:
         self.power -= powerXP
         self.mana -= manaXP
         if self.power == 0:
-            print(f"This unit has not power")
+            print("This unit has not power")
         if self.mana == 0:
-            print(f"This unit has not mana")
+            print("This unit has not mana")
         else:
             print(f"power: {self.power}, mana: {self.mana}")
 
@@ -422,7 +432,7 @@ class WarElf:
         self.power = 100
         self.mana = 100
         self.money -= 10
-        print(f'This unit is fully recovered')
+        print('This unit is fully recovered')
         print(f'This unit has {self.money} coins now')
 
     def battle(self):
@@ -439,13 +449,13 @@ class WarElf:
 
     def credit_check(self):
         if self.money >= 0:
-            print(f'This unit has not debt')
+            print('This unit has not debt')
         elif self.money in [-10, 0]:
-            print(f'This unit owes money')
+            print('This unit owes money')
             self.health -= 1
         else:
             self.health = 0
-            print(f'This unit died over debt')
+            print('This unit died over debt')
 
 
 # unit1 = WarElf("Farold", 'east-grey', 'middle', 8, 15, 20, 49, 7)

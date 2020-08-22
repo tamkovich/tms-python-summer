@@ -7,6 +7,7 @@ run, jump, birthday(увеличивает age на 1), sleep.
 Cat - meow, Dog - bark.
 """
 
+
 class Dog:
     """создан класс Собака"""
 
@@ -31,6 +32,7 @@ class Dog:
         self.age += 1
         print(f'Today {self.name} turns {self.age} old')
 
+
 class Cat:
     """создан класс Кот"""
 
@@ -54,6 +56,7 @@ class Cat:
     def birthday(self):
         self.age += 1
         print(f'Today {self.name} turns {self.age} old')
+
 
 class Parrot:
     """создан класс Попугай"""
