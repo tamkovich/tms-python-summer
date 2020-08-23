@@ -1,3 +1,7 @@
+# Создать декоратор для функции, которая принимает список чисел.
+# Декоратор должен производить предварительную проверку данных -
+# удалять все четные элементы из списка.
+
 def delete_even_numbs(func):
     def odd_numbs(*input_list):
         output_list = []
@@ -21,9 +25,7 @@ def arg_reverse(func):
 @arg_reverse
 @delete_even_numbs
 def m_to_sm(*args) -> list:
-    output_list = []
-    for i in args:
-        output_list.append(i * 2)
+    output_list = [i * 2 for i in args]
     return output_list
 
 
