@@ -15,5 +15,3 @@ def find_sum_matrix_elements(matrix: Matrix) -> int or float:
         for number in elem:
             result += number
     return result
-
-

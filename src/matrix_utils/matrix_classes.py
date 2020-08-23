@@ -20,8 +20,8 @@ class Matrix:
     def gen_default_matrix(self) -> None:
         """Сгенерировать матрицу по умолчанию (нулевую)"""
         self._data = [
-            [randint(self.a, self.b) for _ in range(self.n)] for _ in range(self.m)
-        ]
+            [randint(self.a, self.b) for _ in range(self.n)]
+            for _ in range(self.m)]
         return self._data
 
     def __str__(self) -> str:
