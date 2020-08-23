@@ -13,8 +13,8 @@
 """
 
 
-from matrix_utils import matrix_funcs
 from matrix_utils.matrix_classes import Matrix
+from matrix_utils import matrix_funcs
 
 
 if __name__ == "__main__":
