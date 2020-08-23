@@ -13,7 +13,6 @@
 """
 
 
-from matrix_utils import matrix_classes
 from matrix_utils import matrix_funcs
 from matrix_utils.matrix_classes import Matrix
 
