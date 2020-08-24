@@ -5,6 +5,11 @@ import random
 
 
 def square_matrix_creator(n: int) -> list:
+    """
+    generate square matrix with 'n' dimension with random elements from 0 to 100
+    :param n: matrix dimension
+    :return matrix: square matrix in 'n' dimension
+    """
     matrix = []
     for i in range(n):
         tmp = []
@@ -15,6 +20,10 @@ def square_matrix_creator(n: int) -> list:
     return matrix
 
 def task_executor(matrix: list):
+    """
+    finds max element in each 'matrix' strings and swaps it with element on main diagonal
+    :param matrix: input matrix
+    """
     max_value = 0
     for i in range(len(matrix)):
         matrix_string = matrix[i]

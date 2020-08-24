@@ -2,6 +2,11 @@
 # кроме единицы и самого числа. m и n вводятся с клавиатуры.
 
 def find_all_dividers(x: int) -> list:
+    """
+    finds all dividers of number 'x' nd return a sorted list with them
+    :param x: number for which dividers must found
+    :return: sorted list of found dividers of number 'x'
+    """
     dividers = []
     value = x
     i = 2
