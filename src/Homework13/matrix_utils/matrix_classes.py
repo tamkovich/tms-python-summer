@@ -1,4 +1,4 @@
-import random
+import random as r
 from typing import List
 import numpy as np
 
@@ -21,7 +21,7 @@ class Matrix:
         self.n = n
         self.m = m
         self._data: List[list] = [
-            [random.randint(a, b) for _ in range(self.n)] for _ in range(self.m)
+            [r.randint(a, b) for _ in range(self.n)] for _ in range(self.m)
         ]
 
     @property
