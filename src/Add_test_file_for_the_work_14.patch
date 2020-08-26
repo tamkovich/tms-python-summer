@@ -1,0 +1,16 @@
+Index: src/work_14.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/work_14.py	(revision 4360bd304768a706370fac38f83af56f9734d85c)
++++ src/work_14.py	(date 1597861800222)
+@@ -7,4 +7,8 @@
+     return x + y
+ 
+ 
++def minus(x, y):
++    return x - y
++
++
+ print(test(10))
