@@ -20,7 +20,9 @@ class Matrix:
         self.a = a
         self.n = n
         self.m = m
-        self._data: List[list] = [[random.randint(a, b) for _ in range(self.n)] for _ in range(self.m)]
+        self._data: List[list] = [
+            [random.randint(a, b) for _ in range(self.n)] for _ in range(self.m)
+        ]
 
     @property
     def data(self):
@@ -35,7 +37,7 @@ class Matrix:
         Generate default matrix
         :return: nothing
         """
-        self._data = np.zeros((self.n, self.m), dtype='int')
+        self._data = np.zeros((self.n, self.m), dtype="int")
 
     def __str__(self) -> str:
         """
