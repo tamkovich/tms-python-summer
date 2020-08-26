@@ -13,7 +13,6 @@ class MyTime:
         self.hours = hours
         self.minutes = minutes
         self.seconds = seconds
-
         if self.seconds > 59:
             self.seconds -= 60 * (self.seconds // 60)
             self.minutes += self.seconds // 60
