@@ -9,7 +9,14 @@
 
 
 class MyTime:
-    def __init__(self, hours, minutes, seconds):
+    def __init__(self, hours: int, minutes: int, seconds: int) -> tuple:
+        """
+        convert time to good look
+        :param hours: int
+        :param minutes: int
+        :param seconds: int
+        return tuple (int, int, int)
+        """
         self.hours = hours
         self.minutes = minutes
         self.seconds = seconds
@@ -71,21 +78,13 @@ class MyTime:
         return f'{self.hours}:{self.minutes}:{self.seconds}'
 
 
-# time = MyTime(10, 10, 15)
-# time1 = MyTime(10, 10, 15)
-# print(time == time1)
-# print(time != time1)
-# time2 = MyTime(10, 10, 11)
-# print(time.__gt__(time2))
-# print(time.__add__(time1))
-# print(time.__sub__(time2))
-# print(time.__mul__(3))
-# print(time.__str__())
-# print(dir(MyTime))
-# print(time.hours)
-
 class MyTimeString(MyTime):  # Входные данные: одна строка
-    def __init__(self, string):
+    def __init__(self, string: input) -> tuple:
+        """
+        Дочерний класс MyTime.
+        Принимает на вход строку, числа д.б. разделены двоеточием
+        :param string: string
+        """
         self.string = string.split(':')
         self.hours = int(self.string[0])
         self.minutes = int(self.string[1])
@@ -93,32 +92,31 @@ class MyTimeString(MyTime):  # Входные данные: одна строк�
 
 class MyTimeNumber(MyTime):   # Входные данные: 3 числа
     def __init__(self):
+        """
+        Дочерний класс MyTime.
+        Принимает на вход три числа, введенных с клавиатуры
+        """
         self.hours = int(input("hours:"))
         self.minutes = int(input("minutes:"))
         self.seconds = int(input("seconds:"))
 
 class MyTimeMyTime(MyTime):   # Входные данные: др. обьект класса
-    def __init__(self, anytime):
+    def __init__(self, anytime: MyTime):
+        """
+        Дочерний класс MyTime.
+        Принимает на вход другой экземпляр этого же класса
+        :param anytime: экземпляр класса MyTime
+        """
         self.hours = anytime.hours
         self.minutes = anytime.minutes
         self.seconds = anytime.seconds
 
 class MyTimeNone(MyTime):  # Входные данные: отсутствуют
     def __init__(self):
+        """
+        Дочерний класс MyTime.
+        Принимает на вход ничего.
+        """
         self.hours = None
         self.minutes = None
         self.seconds = None
-
-
-# time4 = MyTimeString('12:38:15')
-# print(time4.__str__())
-# print(time.__sub__(time4))
-# time5 = MyTimeNumber()
-# print(time5.__str__())
-# print(time.__sub__(time5))
-# timeX = MyTime(43, 67, 80)
-# print(timeX.__str__())
-# timeM = MyTimeMyTime(time5)
-# print(timeM.__str__())
-# timeN = MyTimeNone
-# print(timeN.__dict__)
