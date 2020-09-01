@@ -1,0 +1,7 @@
+int
+float
+bool
+stroke
+list
+dict
+set
