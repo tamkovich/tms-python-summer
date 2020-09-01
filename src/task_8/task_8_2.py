@@ -4,15 +4,16 @@
 справа налево. (Определить функцию, позволяющую распознавать слова
 палиндромы.)
 """
-def palindrom(x: list) -> list:
+def palindrom(x: list[str]) -> list[str]:
     """
     Функция по определению слов палиндромов.
     На вход принимает произвольный список из слов.
     На выходе возвращает новый список из слов палиндромов
-    :param x: list
-    :return: new list
+    :param x: list из слов
+    :return: new list из слов палиндромов
     """
     return [i for i in x if i == i[::-1]]
+
 
 words = ['шалаш', 'утка', 'кабак']
 print(palindrom(words))
