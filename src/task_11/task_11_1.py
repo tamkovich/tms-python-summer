@@ -77,17 +77,6 @@ class President:
         self.term = term
 
 
-# new_President = President('Lu', 67, 'male', 'KP', 40000, 'Shklov', 1)
-# print(new_President.__dict__)
-# new_President.new_term(False)
-# new_President.go_away()
-# new_President.name = "Sveta"
-# new_President.party = "Alternate"
-# new_President = President(
-#     'Sveta', 37, 'female', 'Alternate', 4000, 'Mazir', 1
-# )
-# print(new_President.__dict__)
-
 class Footballer:
     """создан класс Футболист"""
     def __init__(self, name, age, sex, nation, club, number, price):
@@ -160,16 +149,6 @@ class Footballer:
         self.number = number
 
 
-# footballer1 = Footballer(
-#     "Mane", 28, "male", "Senegal", "FC Liverpool", '9', 110000
-# )
-# footballer1.injury()
-# footballer1.out()
-# footballer1.change_number('11')
-# print(footballer1.__dict__)
-# footballer1.club = 'Real'
-# print(footballer1.club)
-
 class CarSell:
     """создан класс Автомобиль на продаже"""
     def __init__(self, mark, model, drive_unit, mileage, fuel, color, price):
@@ -236,10 +215,6 @@ class CarSell:
     def change_price(self, price):
         self.price = price
 
-
-# car1 = CarSell('Tesla', 'model M', '4x4', 300343, "elec.", "white", 50000)
-# car1.discount(3)
-# print(car1.__dict__)
 
 class House:
     """создан класс дом"""
@@ -318,16 +293,6 @@ class House:
     def overhaul(self):
         self.state = 'good'
 
-
-# house1 = House(150, 30, 50, 'normal', 48, 28, 3)
-# print(house1.__dict__)
-# house1.birthday_house()
-# house1.birthday_house()
-# print(house1.state)
-# print(house1.years_old)
-# house1.overhaul()
-# house1.birthday_house()
-# print(house1.state)
 
 class WarElf:
     """создан класс боевой ельф"""
@@ -456,17 +421,3 @@ class WarElf:
         else:
             self.health = 0
             print('This unit died over debt')
-
-
-# unit1 = WarElf("Farold", 'east-grey', 'middle', 8, 15, 20, 49, 7)
-# unit1.battle()
-# unit1.damage(3)
-# unit1.attak(2, 4)
-# unit1.damage(1)
-# unit1.heal(5)
-# print(unit1.__dict__)
-# unit1.battle()
-# unit1.heal(5)
-# unit1.full_recovery()
-# print(unit1.__dict__)
-# unit1.attak(2, 1)
