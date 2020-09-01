@@ -9,7 +9,6 @@ Matrix. Функции позволяют искать максимальный 
 описанными функциями и методами
 """
 
-
 from matrix_utils import matrix_classes
 from matrix_utils import matrix_funcs
 

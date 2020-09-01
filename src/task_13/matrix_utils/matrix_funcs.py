@@ -1,6 +1,7 @@
 from matrix_utils.matrix_classes import Matrix
 import numpy as np
 
+
 def find_max_matrix_element(matrix: Matrix) -> int:
     """
     find max elem in matrix
