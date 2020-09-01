@@ -28,4 +28,3 @@ print(test)
 csv_utils.del_csv('info.csv', 2)
 test = csv_utils.csv_reader('info.csv', 'r')
 print(test)
-
