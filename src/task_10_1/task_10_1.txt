@@ -1,0 +1,6 @@
+str N: 0 
+str N: 1 
+str N: 2 
+str N: 3 
+str N: 4 
+str N: 5 

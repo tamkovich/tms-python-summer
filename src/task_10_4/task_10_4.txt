@@ -1,0 +1,7 @@
+str 1
+str 2
+some info
+list
+obj
+some else
+while
