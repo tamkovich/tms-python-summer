@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+        <h1>Главная таблица</h1>
+    {% if products %}
+        {% for el in products %}
+            <div class="alert alert-warning mt-2">
+                <h3>Название: {{ el.name }}</h3>
+                <p>Цена: {{ el.price }}</p>
+                <p>Количество: {{ el.quantity }}</p>
+                <p>Комментарий: {{ el.comment }}</p>
+                <td><a href="{% url 'product-update' el.id %}">Изменить</a> | <a href="{% url 'product-delete' el.id %}">Удалить</a></td>
+
+
+
+            </div>
+
+        {% endfor %}
+    {% else %}
+        <p>Список пуст!</p>
+    {% endif %}
+{% endblock %}
