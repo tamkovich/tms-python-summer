@@ -13,8 +13,12 @@
                 <p>Цена: {{ el.price }}</p>
                 <p>Количество: {{ el.quantity }}</p>
                 <p>Комментарий: {{ el.comment }}</p>
-                <td><a href="{% url 'edit' el.id %}">Изменить</a> | <a href="{% url 'delete' el.id %}">Удалить</a></td>
+                <td><a href="{% url 'product-update' el.id %}">Изменить</a> | <a href="{% url 'product-delete' el.id %}">Удалить</a></td>
+
+
+
             </div>
+
         {% endfor %}
     {% else %}
         <p>Список пуст!</p>

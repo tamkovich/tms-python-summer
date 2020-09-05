@@ -1,9 +1,10 @@
-from . import views
+from django.conf.urls import url
 from django.urls import path
+from .views import ProductCreate, ProductUpdate, ProductDelete, index
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('add_product', views.add_product, name='add_product'),
-    path('edit/<int:id>/', views.edit, name='edit'),
-    path('delete/<int:id>/', views.delete, name='delete'),
+    path('', index, name='index'),
+    url(r'add_product/$', ProductCreate.as_view(), name='product-add'),
+    url(r'product/(?P<pk>[0-9]+)/$', ProductUpdate.as_view(), name='product-update'),
+    url(r'product/(?P<pk>[0-9]+)/delete/$', ProductDelete.as_view(), name='product-delete'),
 ]
