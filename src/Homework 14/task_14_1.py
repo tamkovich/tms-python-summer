@@ -13,14 +13,14 @@ import os
 import csv
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-fn', '--first-name', required=True)
-parser.add_argument('-ln', '--last-name', required=True)
-parser.add_argument('echo')
+parser.add_argument("-fn", "--first-name", required=True)
+parser.add_argument("-ln", "--last-name", required=True)
+parser.add_argument("echo")
 args = parser.parse_args()
 
-print('First name:', args.first_name)
-print('Last name:', args.last_name)
-print('Time:', args.echo)
+print("First name:", args.first_name)
+print("Last name:", args.last_name)
+print("Time:", args.echo)
 
 time_list = args.echo.split(":")
 
@@ -54,18 +54,18 @@ while time_in_seconds != 0:
 
 print("ALARM!!!")
 
-file_name = 'program start data'
+file_name = "program start data"
 
 if not os.path.exists(file_name):
-    file_path = os.path.realpath('task_14_1.py')
+    file_path = os.path.realpath("task_14_1.py")
     dir_name = os.path.dirname(file_path)
     os.mkdir(file_name)
 
-field = ['firstname', 'lastname', 'date']
+field = ["firstname", "lastname", "date"]
 row = [args.first_name, args.last_name, datetime.datetime.now()]
 count = 0
 
-with open('program start data/data.csv', 'a') as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter='\t')
+with open("program start data/data.csv", "a") as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter="\t")
     csvwriter.writerow(field)
     csvwriter.writerow(row)
