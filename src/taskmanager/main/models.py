@@ -8,9 +8,8 @@ class Product(models.Model):
     quantity = models.IntegerField('Количество')
     comment = models.CharField('Комментарий', max_length=255)
 
-    @staticmethod
-    def get_absolute_url():
-        return reverse('index')
+    def get_absolute_url(self):
+        return reverse('product-details', args=[str(self.id)])
 
     def __str__(self):
         return self.name
