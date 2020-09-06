@@ -17,7 +17,7 @@ class Matrix:
     def data(self, data):
         self._data = data
 
-    def gen_default_matrix(self) -> None:
+    def gen_default_matrix(self):
         """Сгенерировать матрицу по умолчанию (нулевую)"""
         self._data = [
             [randint(self.a, self.b) for _ in range(self.n)]
