@@ -21,7 +21,6 @@ parser.add_argument('name_of_task', type=str)
 parser.add_argument('time_focus', nargs='?', type=int or float, default=25)
 parser.add_argument('time_pause', nargs='?', type=int or float, default=5)
 parser.add_argument('numb_of_cycles', nargs='?', type=int, default=4)
-
 args = parser.parse_args()
 
 print('First name:', args.first_name)
