@@ -1,3 +1,4 @@
+import time
 class MyTime:
     def __init__(self, hours, minutes, seconds):
         self.hours = hours
@@ -81,6 +82,7 @@ class Timer(MyTime):
         sec = self.seconds + self.minutes * 60 + self.hours * 3600
         while sec > 1:
             sec -= 1
+            time.sleep(1)
             s = sec % 60
             m = (sec // 60) % 60
             h = sec // 3600
