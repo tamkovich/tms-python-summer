@@ -56,7 +56,8 @@ class Products(Base):
     def update(atr: str, tmp: str or int, item_id: int):
         e.execute(
             f"""
-            update {Products.__tablename__} set {atr} = {tmp} where {Products.id} = {item_id}
+            update {Products.__tablename__} set {atr} = {tmp} 
+            where {Products.id} = {item_id}
         """
         )
 
