@@ -5,7 +5,7 @@
 Реализовать CRUD(создание, чтение, обновление по id, удаление по id)
 для продуктов. Создать пользовательский интерфейс.
 """
-from sqlalchemy import create_engine, exc
+from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -62,7 +62,8 @@ class Products(Base):
 
     @staticmethod
     def delete_product(item_id: int):
-        e.execute(f"""
+        e.execute(
+            f"""
             delete from {Products.__tablename__} where id = {item_id}
         """
         )
