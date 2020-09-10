@@ -10,7 +10,6 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, TEXT
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import mapper
 
 
 engine = create_engine("sqlite:///products.db", echo=True)
@@ -26,7 +25,17 @@ class Product(Base):
     quantity = Column(Integer)
     comment = Column(TEXT)
 
-    def __init__(self, name, price, quantity, comment):
+    def __init__(self, name: str,
+                 price: float,
+                 quantity: float,
+                 comment: str):
+        """
+        Конструктор продукта
+        :param name: название продукта
+        :param price: цена продукта
+        :param quantity: количество продукта в наличие
+        :param comment: комментарий, описание.
+        """
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -73,16 +82,11 @@ class Product(Base):
 
     @classmethod
     def read_product(cls, name: str):
-        print(session.query(Product).filter_by(name=name).all())
-
-    @classmethod
-    def read_table(cls) -> str:
-        result = engine.execute(
-            f"""
-            select * from {Product.__tablename__}
         """
-        )
-        return result
+        чтение строки конкретного продукта
+        :param name: название продукта
+        """
+        print(session.query(Product).filter_by(name=name).all())
 
 
 while True:
