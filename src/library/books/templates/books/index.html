@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block content %}
-    {% if books %}
-        {% for el in books %}
+    {% if book_list %}
+        {% for el in book_list %}
             <div class="alert alert-warning mt-2">
-                <h3>{{ el.title }}</h3>
+                <a href="{{ el.get_absolute_url }}">{{ el.title }}</a>
                 <p>{{ el.author_name }}</p>
                 <p>{{ el.description }}</p>
                 {% if perms.library.change_projectemail %}
