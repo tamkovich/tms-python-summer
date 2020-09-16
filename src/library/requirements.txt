@@ -1,0 +1,17 @@
+asgiref==3.2.10
+books==0.1.2
+Django==3.1.1
+djangorestframework==3.11.1
+llvmlite==0.34.0
+numba==0.51.2
+numpy==1.19.1
+pandas==1.1.1
+psycopg2==2.8.5
+python-dateutil==2.8.1
+pytz==2020.1
+PyYAML==5.3.1
+six==1.15.0
+SQLAlchemy==1.3.19
+sqlalchemy-mixins==1.2.1
+SQLAlchemy-Utils==0.36.8
+sqlparse==0.3.1

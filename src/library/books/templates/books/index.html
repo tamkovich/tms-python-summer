@@ -1,0 +1,30 @@
+{% extends 'books/base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if book_list %}
+        {% for el in book_list %}
+            <div class="alert alert-warning mt-2">
+                <a href="{{ el.get_absolute_url }}">{{ el.title }}</a>
+                <p>{{ el.author_name }}</p>
+                <p>{{ el.description }}</p>
+                {% if perms.library.change_projectemail %}
+                    <td><a href="{% url 'book-update' el.id %}">Изменить</a> |
+                    {% if perms.library.delete_invoicetype %}
+                        <a href="{% url 'book-delete' el.id %}">Удалить</a></td>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Список пуст!</p>
+    {% endif %}
+{% endblock %}
+
+{% block button_name %}
+подробности
+{% endblock %}

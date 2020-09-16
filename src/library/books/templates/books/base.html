@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<link href="https://getbootstrap.com/docs/4.5/examples/product/product.css" rel="stylesheet">
+<body>
+<nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'index' %}api/">API</a>
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'index' %}">Главная страница</a>
+    {% if perms.taskmanager.add_invoicetype %}
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'book-add' %}">Добавить книгу</a>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'index' %}admin/logout">Выйти</a>
+    {% else %}
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'index' %}admin/login">Войти</a>
+    {% endif %}
+  </div>
+</nav>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="position-relative p-3 p-md-5 m-md-3 text-center bg-light">
+    <h1 class="display-4 font-weight-normal">{% block headline %}{% endblock %}</h1>
+    <p class="lead font-weight-normal">{% block content %}{% endblock %}</p>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+</div>
+</body>
+</html>

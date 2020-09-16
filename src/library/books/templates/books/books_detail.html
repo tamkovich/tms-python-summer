@@ -1,0 +1,13 @@
+{% extends 'books/base.html' %}
+
+{% block title %}
+Подробно
+{% endblock %}
+
+{% block content %}
+<div class="alert alert-warning mt-2">
+    <h1> {{book_detail.title}}</h1>
+    <h2> {{book_detail.author_name}}</h2>
+    <h2> {{book_detail.description}}</h2>
+</div>
+{% endblock %}
