@@ -1,5 +1,49 @@
 from datetime import time, date
+from unittest import TestCase
+
 from test import Shift
+
+
+class CrossingTest(TestCase):
+    def test_ok(self):
+        men1 = Shift(**tests_ok[0][0])
+        men2 = Shift(**tests_ok[0][1])
+        crossing1 = Shift.compare(men1, men2)
+
+        men3 = Shift(**tests_ok[1][0])
+        men4 = Shift(**tests_ok[1][1])
+        crossing2 = Shift.compare(men3, men4)
+
+        men5 = Shift(**tests_ok[2][0])
+        men6 = Shift(**tests_ok[2][1])
+        crossing3 = Shift.compare(men5, men6)
+
+        men7 = Shift(**tests_ok[3][0])
+        men8 = Shift(**tests_ok[3][1])
+        crossing4 = Shift.compare(men7, men8)
+
+        men9 = Shift(**tests_ok[3][0])
+        men10 = Shift(**tests_ok[3][1])
+        crossing5 = Shift.compare(men9, men10)
+
+        men11 = Shift(**tests_ok[3][0])
+        men12 = Shift(**tests_ok[3][1])
+        crossing6 = Shift.compare(men11, men12)
+
+        self.assertEqual([crossing1, crossing2, crossing3, crossing4, crossing5, crossing6],
+                         [True, True, True, True, True, True])
+
+    def test_not(self):
+        men1 = Shift(**tests_not[0][0])
+        men2 = Shift(**tests_not[0][1])
+        crossing1 = Shift.compare(men1, men2)
+
+        men3 = Shift(**tests_not[1][0])
+        men4 = Shift(**tests_not[1][1])
+        crossing2 = Shift.compare(men3, men4)
+
+        self.assertEqual([crossing1, crossing2], [False, False])
+
 
 tests_ok = [
     (
@@ -134,14 +178,3 @@ tests_not = [
         ),
     ),
 ]
-print('test ok:')
-for i in tests_ok:
-    men1 = Shift(**i[0])
-    men2 = Shift(**i[1])
-    print(Shift.compare(men1, men2))
-
-print('test not ok:')
-for i in tests_not:
-    men1 = Shift(**i[0])
-    men2 = Shift(**i[1])
-    print(Shift.compare(men1, men2))
