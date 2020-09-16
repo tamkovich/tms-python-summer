@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Create Article</title>
+</head>
+<body>
+<h1>Create New Article</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Title: <input type="title" name="title"></p>
+    <p>Description: <input type="description" name="description"></p>
+    <button type="submit">Save</button>
+
+</form>
+
+</body>
