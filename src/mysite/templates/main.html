@@ -1,28 +1,31 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <style>
-        body {
-            background-image: url(
-            https://cdnuploads.aa.com.tr/uploads/Contents/2020/05/14/thumbs_b_c_88bedbc66bb57f0e884555e8250ae5f9.jpg?v=140708
-            );
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-    <div style="background: white;">
-    {% for user in users %}
+    <div class="container">
+        <div class="row">
+        {% for user in users %}
+            <div class="col-6">
+                <h1>Profile:</h1>
+                <b>Email: </b>{{ user.email }} <br>
+                <b>Username: </b>{{ user.username }} <br>
+                <b>First Name: </b>{{ user.first_name }} <br>
+                <b>Last Name: </b>{{ user.last_name }} <br>
+                    <hr>
+            </div>
+        {% endfor %}
+        </div>
 
-        <h1 style="color: red;">Profile:</h1>
-        <b>Email: </b>{{ user.email }} <br>
-        <b>Username: </b>{{ user.username }} <br>
-        <b>First Name: </b>{{ user.first_name }} <br>
-        <b>Last Name: </b>{{ user.last_name }} <br>
-            <hr>
-
-    {% endfor %}
+    {% include 'create_article.html' %}
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </html>
