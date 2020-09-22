@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+        <div class="alert-success">
+            <p>{{ object.description }}</p>
+            <h6>{{ object.author }}</h6>
+            <a href="{% url 'articles' %}">All Articles</a>
+        </div>
+{% endblock %}
