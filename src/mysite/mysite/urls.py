@@ -9,5 +9,6 @@ from mysite.views import hello
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello),
+    path('api/', include('api.urls')),
     path('', include('blog.urls')),
 ] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
