@@ -1,21 +1,21 @@
 from django.urls import path, re_path
 
 from blog.views import (
-    test,
-    home,
-    get_user,
-    create,
+    UserListView,
+    UserDetailView,
+    ArticleDetailView,
 )
 
 
 urlpatterns = [
-    path('', home),
-    path('users/<username>/', get_user),
-    path('test/', test),
-    path('create/', create),
+    path('', UserListView.as_view(), name='list-users'),
+    path('users/<username>/', UserDetailView.as_view(), name='get-user'),
+    re_path(r'^article/(?P<pk>\d+)/$', ArticleDetailView.as_view()),
 ]
 
 """
+/article/bla-bla/
+
 /users/test/
 /users/admin/
 /users/petia/

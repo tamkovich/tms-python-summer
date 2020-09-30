@@ -14,9 +14,10 @@
             <div class="col-6">
                 <h1>Profile:</h1>
                 <b>Email: </b>{{ user.email }} <br>
-                <b>Username: </b>{{ user.username }} <br>
+                <b>Username: </b><a href="{% url "get-user" username=user.username %}">{{ user.username }}</a><br>
                 <b>First Name: </b>{{ user.first_name }} <br>
                 <b>Last Name: </b>{{ user.last_name }} <br>
+                <b>Avatar: </b> <img src="{{ user.profile.avatar.url }}" alt=""><br>
                     <hr>
             </div>
         {% endfor %}

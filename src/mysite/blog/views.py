@@ -1,30 +1,34 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.models import User
 
-from blog.models import Article
+from blog.forms import ArticleForm
+from blog.forms import Article
 
 
-def test(request):
-    return HttpResponse("Test urls work cool")
+class UserListView(ListView):
+    model = User
+    template_name = 'main.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=None, **kwargs)
+        context['users'] = self.object_list
+        context['form'] = ArticleForm
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = ArticleForm(request.POST, request.FILES or None)
+        form.is_valid()
+        form.save()
+        return self.get(request, *args, **kwargs)
 
 
-def home(request):
-    users = User.objects.all()
-    return render(request, 'main.html', context={'users': users})
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'user.html'
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
 
 
-def get_user(request, username):
-    return render(request, 'user.html', context={
-        'user': User.objects.get(username=username)
-    })
-
-
-def create(request):
-    if request.POST:
-        Article.objects.create(
-            title=request.POST.get('title'),
-            description=request.POST.get('description'),
-        )
-    return render(request, 'create_article.html')
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'article.html'
