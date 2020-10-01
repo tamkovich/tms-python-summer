@@ -1,0 +1,16 @@
+{% extends 'flymen/base.html' %}
+
+{% block title %}
+Cоздать таск
+{% endblock %}
+
+{% block content %}
+    <h1>Создать таск</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.task }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{error}}</span>
+    </form>
+{% endblock %}
