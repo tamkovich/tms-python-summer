@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>All Articles</h1>
+    {% for el in articles %}
+        <div class="alert-success">
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.description }}</p>
+            <h6>{{ el.author }}</h6>
+        </div>
+    {% endfor %}
+{% endblock %}
