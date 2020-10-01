@@ -1,0 +1,11 @@
+
+<h1>Create New Article</h1>
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Save</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+</form>
+
