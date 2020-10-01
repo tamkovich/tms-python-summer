@@ -6,7 +6,7 @@ from test import Shift
 class ShiftTestCase(unittest.TestCase):
     """
     class for testing class 'Shift'
-    return: True for crosses shifts. False - not crosses.
+    return: True for crosses shifts. False - not crosses shifts.
     """
 
     def test_shift_True(self):

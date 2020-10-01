@@ -29,9 +29,9 @@ class Shift:
                f'{self.week_days}'
 
     def __cmp__(self, other):
-        if (self.date_to < other.date_from and \
+        if (self.date_to < other.date_from and
             self.week_days[-1] != (other.week_days[0]-1)) or \
-                (other.date_to < self.date_from and \
+                (other.date_to < self.date_from and
                  other.week_days[-1] != (self.week_days[0]-1)):
             return False
         else:
@@ -39,11 +39,11 @@ class Shift:
                     (self.time_from < self.time_to and other.time_from < other.time_to):
                 return False
             else:
-                if (self.time_from < self.time_to <= other.time_from < other.time_to or \
-                        other.time_from < other.time_to <= self.time_from < self.time_to or \
-                        other.time_to <= self.time_from < other.time_from <= self.time_to or \
-                        self.time_to <= other.time_from < self.time_from <= other.time_to or \
-                        other.time_from >= self.time_to < other.time_to < self.time_from or \
+                if (self.time_from < self.time_to <= other.time_from < other.time_to or
+                        other.time_from < other.time_to <= self.time_from < self.time_to or
+                        other.time_to <= self.time_from < other.time_from <= self.time_to or
+                        self.time_to <= other.time_from < self.time_from <= other.time_to or
+                        other.time_from >= self.time_to < other.time_to < self.time_from or
                         self.time_from >= other.time_to < self.time_to < other.time_from):
                     return False
                 else:
