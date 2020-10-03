@@ -6,10 +6,14 @@ Profile User
 
 {% block content %}
 <h1 style="color: blueviolet;">Profile:</h1>
+<hr>
 <b>Email: </b>{{ object.email }} <br>
 <b>Username: </b>{{ object.username }} <br>
 <b>First Name: </b>{{ object.first_name }} <br>
 <b>Last Name: </b>{{ object.last_name }} <br>
+<h6 align="center"><img src="{{ user.profile.avatar.url }}" alt="" height="300px"></h6>
+<hr><br><br><br>
+<p align="right"><a href="{% url 'home' %}">Back to main</a></p>
 {% endblock %}
 
 

@@ -5,10 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ object.title }}</h1>
+    <h1 style="color: blueviolet;">{{ object.title }}</h1>
         <div class="alert-success">
-            <p>{{ object.description }}</p>
-            <h6>{{ object.author }}</h6>
+            <h2>{{ object.description }}</h2>
+            <img src="{{ object.image.url }}" alt="" height="200px">
+            <h6 style="color: red;">{{ object.author }}</h6>
+            <hr>
             <a href="{% url 'articles' %}">All Articles</a>
+            <br><a href="{% url 'home' %}">Create New article</a>
         </div>
 {% endblock %}

@@ -6,9 +6,8 @@ from blog.views import UserListView, \
 
 
 urlpatterns = [
-    path('users/<username>/', UserDetailView.as_view()),
-    # path('create/', create),
+    path('users/<username>/', UserDetailView.as_view(), name='get-user'),
     path('articles/', ArticleListView.as_view(), name='articles'),
     path('', UserListView.as_view(), name='home'),
-    path('article/<pk>/', ArticleDetailView.as_view()),
+    path('article/<pk>/', ArticleDetailView.as_view(), name='get-article'),
 ]

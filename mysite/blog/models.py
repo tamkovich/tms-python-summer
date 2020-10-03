@@ -15,6 +15,7 @@ class Article(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(blank=True, null=True)
 
     """
     CREATE TABLE comments(
@@ -31,6 +32,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_image_url(self):
+        return f'/media/{self.image}'
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)

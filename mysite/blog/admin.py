@@ -4,9 +4,9 @@ from blog.models import Article, Comment
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ('id', 'title', 'description', 'author')
+    fields = 'title', 'description', 'author',
     search_fields = 'title',
-    list_display = ('id', 'title', 'short_description', 'author',)
+    list_display = 'title', 'short_description', 'author', 'image', 'id'
     list_filter = 'title', 'author',
 
 

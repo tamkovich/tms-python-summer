@@ -15,21 +15,7 @@ from django.contrib.auth.models import User  # обращение к табли�
 # def hello(request):
 #     if not request.user.is_authenticated:
 #         return HttpResponse('Go away!')  # для того, если никто не залогинился
-#     return HttpResponse(f'Hello, {request.user}!')
-
-def hello(request):
-    if not request.user.is_authenticated:
-        return HttpResponse('Go away!')  # для того, если никто не залогинился
-    return HttpResponse(f"<a href='/admin/logout'>Logout from {request.user}</a>")
-
-def give_belarus(request):
-    if not request.user.is_authenticated:
-        return HttpResponse(f"<p>GIVE VECHNA!</p>"
-                            f"<a href='/admin/login'>Login from {request.user}</a>")
-    return HttpResponse(f"<a href='/admin/logout'>Logout from {request.user}</a>"
-                        f"<br>"
-                        f"<a href='https://gomel.today/uploads/News/2017/03/02/609-sciah.jpg'>"
-                        f"BELARUS FREEDOM!</a>")
+#     return HttpResponse(f'Hello, {request.user}!'
 
 def start(request):
     if not request.user.is_authenticated:

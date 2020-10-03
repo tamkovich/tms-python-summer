@@ -5,12 +5,24 @@
 {% endblock %}
 
 {% block content %}
-    <h1>All Articles</h1>
-    {% for el in articles %}
-        <div class="alert-success">
-            <h3>{{ el.title }}</h3>
-            <p>{{ el.description }}</p>
-            <h6>{{ el.author }}</h6>
+    <p align="right"><a href="{% url 'home' %}">Back to main</a></p>
+    <h1 align="center">All Articles</h1>
+    <hr>
+    <br>
+    <div class="container">
+        <div class="row">
+        {% for el in articles %}
+            <div class="col-4">
+                <h3><a href="{% url 'get-article' pk=el.pk %}">{{ el.title }}</a></h3>
+                <p>{{ el.description }}</p>
+                <p><img src="{{ el.image.url }}" alt="" height="150px"></p>
+                <p>{{ el.author }}</p>
+                <hr><br>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
+    </div>
+    <br>
+    <p align="right"><a href="{% url 'home' %}">Back to main</a></p>
+
 {% endblock %}

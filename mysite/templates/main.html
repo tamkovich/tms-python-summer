@@ -14,9 +14,10 @@
             <div class="col-6">
                 <h1>Profile:</h1>
                 <b>Email: </b>{{ user.email }} <br>
-                <b>Username: </b>{{ user.username }} <br>
+                <b>Username: </b><a href="{% url 'get-user' username=user.username %}">{{ user.username }}</a> <br>
                 <b>First Name: </b>{{ user.first_name }} <br>
                 <b>Last Name: </b>{{ user.last_name }} <br>
+                <b>Avatar: </b> <img src="{{ user.profile.avatar.url }}" alt="" height="30px"><br>
                     <hr>
             </div>
         {% endfor %}
@@ -24,8 +25,12 @@
     </div>
 
     <div>
-    {% include 'create_article.html' %}
+        <div class="col-11">
+        {% include 'create_article.html' %}
+        <h6 align="right"><a href="{% url 'articles' %}">All Articles</a></h6>
+        </div>
     </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
