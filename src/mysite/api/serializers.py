@@ -12,11 +12,11 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    author = AuthorSerializer()
+    author = AuthorSerializer(read_only=True)
 
     class Meta:
         model = Article
-        fields = 'id', 'title', 'author', 'url'
+        fields = 'id', 'title', 'author', 'url', 'description'
 
 
 '''
