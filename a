@@ -1,0 +1,65 @@
+[33mcommit 57de6390474494d9f7baf5b11922c11114756790[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/django1[m[33m, [m[1;32mdjango1[m[33m)[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Thu Oct 1 18:54:39 2020 +0300
+
+    text django: Barahovskiy
+
+[33mcommit ee2ee242a4c77eb5313260703080d0ad052b6dfb[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Thu Oct 1 18:44:38 2020 +0300
+
+    Test Project: Vitaliy Barahovskiy
+
+[33mcommit 604a0c8bc7d2c2041507e83611339e42a8046647[m[33m ([m[1;31morigin/django[m[33m, [m[1;32mdjango[m[33m)[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Sun Sep 6 23:56:56 2020 +0300
+
+    HW<django>: Vitaliy Barahovskiy
+
+[33mcommit 12f7023a087c4c48f9aae01781134e6bef9922f8[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Sun Sep 6 23:44:45 2020 +0300
+
+    djanco>: Vitaliy Barahovskiy
+
+[33mcommit ee286da78179ed08d6949c7200d121f7035934b0[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Sun Sep 6 23:19:46 2020 +0300
+
+    HW<djanco>: Vitaliy Barahovskiy
+
+[33mcommit 77bf1909aa8f5128fcbc93d0157fe5d942241380[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Sun Sep 6 23:01:17 2020 +0300
+
+    HW<djanco>: Vitaliy Barahovskiy
+
+[33mcommit 531d2502dfc824b77cab6fd4d03749b84c70858f[m
+Author: Vitaliy Barahovskiy <vitalikbarahovskiy@mail.ru>
+Date:   Mon Aug 31 18:20:32 2020 +0300
+
+    HW<9>: Vitaliy Barahovskiy
+
+[33mcommit bd6e42870ade885e4ffb1d8588d78a81a75b2b2a[m
+Author: Виталий Бараховский <vitalikbarahovskii@mail.ru>
+Date:   Mon Aug 3 18:51:55 2020 +0300
+
+    x
+
+[33mcommit 2b2d60f5ea8094be23c01dfef17a050718f68756[m
+Author: Виталий Бараховский <vitalikbarahovskii@mail.ru>
+Date:   Sun Aug 2 22:32:29 2020 +0300
+
+    HW7: Barahovskiy Vitaliy
+
+[33mcommit 3c7e5bca1125c4791e001fe7e1c825cbec450f75[m
+Author: Denis Tamkovich <tamkovichdenis@gmail.com>
+Date:   Mon Jul 20 13:47:38 2020 +0300
+
+    base setup
+
+[33mcommit b5aa501cef9dbd6d56a5bf71c56420f4e879d513[m[33m ([m[1;31mupstream/circleci-project-setup[m[33m, [m[1;31morigin/circleci-project-setup[m[33m)[m
+Author: Denis Tamkovich <35404746+tamkovich@users.noreply.github.com>
+Date:   Mon Jul 20 13:40:47 2020 +0300
+
+    Add .circleci/config.yml
