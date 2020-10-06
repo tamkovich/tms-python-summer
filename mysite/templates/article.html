@@ -1,17 +1,48 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ title }}
+{{ object.title }}
 {% endblock %}
 
 {% block content %}
     <h1 style="color: blueviolet;">{{ object.title }}</h1>
         <div class="alert-success">
-            <h2>{{ object.description }}</h2>
-            <img src="{{ object.image.url }}" alt="" height="200px">
-            <h6 style="color: red;">{{ object.author }}</h6>
+            <p style="font-size: 18px" >{{ object.description }}</p>
+            <img src="{{ object.image.url }}" alt="" height="300px" align="bottom">
+            <h6 style="color: red;"><a href="{% url 'get-user' username=object.author %}">{{ object.author }}</a></h6>
             <hr>
             <a href="{% url 'articles' %}">All Articles</a>
             <br><a href="{% url 'home' %}">Create New article</a>
         </div>
+    {% with comments.count as total_comments %}
+      <h2>
+          {{ total_comments }} comment{{ total_comments|pluralize }}
+      </h2>
+    {% endwith %}
+
+    {% for comment in comments %}
+      <div class="comment">
+       <p class="info">
+         Comment {{ forloop.counter }} by {{ comment.name }}
+         {{ comment.created }}
+       </p>
+      {{ comment.body|linebreaks }}
+      </div>
+    {% empty %}
+      <p>There are no comments yet.</p>
+    {% endfor %}
+
+    {% if new_comment %}
+      <h2>Your comment has been added.</h2>
+    {% else %}
+      <h2>Add a new comment</h2>
+      <form action="." method="post">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Add comment"></p>
+      </form>
+    {% endif %}
+
+
+
 {% endblock %}

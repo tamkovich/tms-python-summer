@@ -4,10 +4,9 @@ from blog.views import UserListView, \
                        ArticleDetailView, \
                        ArticleListView
 
-
 urlpatterns = [
     path('users/<username>/', UserDetailView.as_view(), name='get-user'),
     path('articles/', ArticleListView.as_view(), name='articles'),
     path('', UserListView.as_view(), name='home'),
-    path('article/<pk>/', ArticleDetailView.as_view(), name='get-article'),
+    path('articles/<pk>/', ArticleDetailView.as_view(), name='get-article'),
 ]

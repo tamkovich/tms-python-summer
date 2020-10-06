@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.contenttypes.fields import GenericForeignKey
 
 
 """
@@ -36,17 +40,36 @@ class Article(models.Model):
     def get_image_url(self):
         return f'/media/{self.image}'
 
-class Comment(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
-    comment = models.CharField(max_length=300)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+# class Comment(models.Model):
+#     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
+#     text = models.CharField(max_length=300)
+#     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments', null=True)
+#
+#     @property
+#     def short_text(self):
+#         return self.text[:50]
+#
+#     def __str__(self):
+#         return self.text
 
-    @property
-    def short_comment(self):
-        return self.comment[:50]
+class Comment(models.Model):
+    article = models.ForeignKey(Article,
+                                on_delete=models.CASCADE,
+                                related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField(default=None)
+    body = models.TextField(default="your comment")
+    created = models.DateTimeField(default=datetime.now())
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
 
     def __str__(self):
-        return self.comment
+        return f'Comment by {self.name} on {self.article}'
+
+
 
     """
     models.CASCADE
