@@ -9,7 +9,7 @@ from blog.models import Article
 class ArticleViewSet(ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    permission_classes = permissions.IsAuthenticated, IsAuthorOrReadOnly
+    # permission_classes = permissions.IsAuthenticated, IsAuthorOrReadOnly
 
 '''
 from rest_framework.views import APIView
