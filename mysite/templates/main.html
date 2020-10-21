@@ -1,38 +1,18 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-        {% for user in users %}
-            <div class="col-6">
-                <h1>Profile:</h1>
-                <b>Email: </b>{{ user.email }} <br>
-                <b>Username: </b><a href="{% url 'get-user' username=user.username %}">{{ user.username }}</a> <br>
-                <b>First Name: </b>{{ user.first_name }} <br>
-                <b>Last Name: </b>{{ user.last_name }} <br>
-                <b>Avatar: </b> <img src="{{ user.profile.avatar.url }}" alt="" height="30px"><br>
-                    <hr>
-            </div>
-        {% endfor %}
-        </div>
-    </div>
+{% block title %}
+Main Page
+{% endblock %}
 
-    <div>
-        <div class="col-11">
-        {% include 'create_article.html' %}
-        <h6 align="right"><a href="{% url 'articles' %}">All Articles</a></h6>
-        </div>
-    </div>
+{% block content %}
+<h5 style="font-size: 13px"><strong>Count users ({{ users.all.count }})</strong></h5><br><br>
+<h1 align="center" style="font-size: 150px;
+    color: #CC33CC;
+    text-shadow: 9px 7px 11px black;">Mine BLOG</h1><br><br><br><br><br>
+<p align="center"><a class="btn btn-outline-primary" style="font-size: 22px;" href="{% url 'users' %}">Look All Profiles</a>
+<a class="btn btn-primary" style="font-size: 22px;" href="{% url 'article_new' %}">Create New article</a>
+<a class="btn btn-outline-primary" style="font-size: 22px;" href="{% url 'articles' %}">All Articles</a></p>
 
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-</html>
+
+
+{% endblock %}

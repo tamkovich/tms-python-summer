@@ -4,44 +4,49 @@
 {{ object.title }}
 {% endblock %}
 
+
 {% block content %}
     <h1 style="color: blueviolet;">{{ object.title }}</h1>
-        <div class="alert-success">
+        <div class="alert-success" style="background: white; border-radius: 8px;">
             <p style="font-size: 18px" >{{ object.description }}</p>
-            <img src="{{ object.image.url }}" alt="" height="300px" align="bottom">
-            <h6 style="color: red;"><a href="{% url 'get-user' username=object.author %}">{{ object.author }}</a></h6>
+            <p style="font-size: 16px">Category: {{ object.category }}</p>
+            {% if user.is_authenticated %}
+                <p><a class="btn btn-primary" href="{% url 'article_edit' object.id %}">edit article</a>
+                <a class="btn btn-danger" href="{% url 'article_delete' object.id %}">delete article</a>
+                <a class="btn btn-outline-primary" href="{% url 'article_new' %}">Create New article</a></p>
+            {% endif %}
+            <p style="font-size: 14px">author: <a href="{% url 'get-user' username=object.author %}">{{ object.author }}</a></p>
             <hr>
             <a href="{% url 'articles' %}">All Articles</a>
-            <br><a href="{% url 'home' %}">Create New article</a>
+            <br>
+
         </div>
-    {% with comments.count as total_comments %}
-      <h2>
-          {{ total_comments }} comment{{ total_comments|pluralize }}
-      </h2>
-    {% endwith %}
-
-    {% for comment in comments %}
-      <div class="comment">
-       <p class="info">
-         Comment {{ forloop.counter }} by {{ comment.name }}
-         {{ comment.created }}
-       </p>
-      {{ comment.body|linebreaks }}
-      </div>
-    {% empty %}
-      <p>There are no comments yet.</p>
-    {% endfor %}
-
-    {% if new_comment %}
-      <h2>Your comment has been added.</h2>
-    {% else %}
-      <h2>Add a new comment</h2>
-      <form action="." method="post">
-        {{ comment_form.as_p }}
+{% if user.is_authenticated %}
+    <br>
+    <form action="" id="add_form" method="post">
         {% csrf_token %}
-        <p><input type="submit" value="Add comment"></p>
-      </form>
-    {% endif %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+{% endif %}
+    </form>
+    <br>
+    <h5><strong>Comments ({{ object.comments_article.all.count }})</strong></h5>
+    <br>
+    <div style="background: white; border-radius: 8px;">
+        <ul>
+        {% for el in object.comments_article.all %}
+            <li>
+            <h3 style="font-size: 20px" >Author comment: {{ el.author }} </h3>
+            <p style="font-size: 16px" > {{ el.text }}</p>
+            <p style="font-size: 12px" >Date: {{ el.created }}</p>
+            </li>
+            <hr>
+        {% empty %}
+        <p>No comments here yet :(</p>
+        {% endfor %}
+        </ul>
+    </div>
+    <hr>
 
 
 

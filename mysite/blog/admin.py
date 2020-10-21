@@ -1,31 +1,36 @@
 from django.contrib import admin
 
-from blog.models import Article, Comment
+from blog.models import Article, Comment, Category
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    fields = 'title', 'description', 'author',
-    search_fields = 'title',
-    list_display = 'title', 'short_description', 'author', 'image', 'id',
-    list_filter = 'title', 'author',
+    fields = 'title', 'description', 'author', 'category', 'image',
+    search_fields = 'title', 'category',
+    list_display = 'title', 'short_description', 'author', 'category', 'image', 'id',
+    list_filter = 'title', 'author', 'category',
 
 
 admin.site.register(Article, ArticleAdmin)
 
-@admin.register(Comment)
+
 class CommentAdmin(admin.ModelAdmin):
-    list_display = 'name', 'email', 'article', 'created', 'active'
-    list_filter = 'active', 'created', 'updated'
-    search_fields = 'name', 'email', 'body'
+    fields = 'text', 'author', 'article', 'created', 'active',
+    list_display = 'short_text', 'author', 'article', 'created', 'active',  'id',
+    list_filter = 'active', 'created', 'author', 'article',
+    search_fields = 'author', 'article', 'created',
 
 
-# class CommentAdmin(admin.ModelAdmin):
-#     fields = 'article', 'text', 'author',
-#     search_fields = 'article',
-#     list_display = 'article', 'short_text', 'author',
-#     list_filter = 'article', 'author',
-#
-#
-# admin.site.register(Comment, CommentAdmin)
+admin.site.register(Comment, CommentAdmin)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    fields = 'title', 'description',
+    list_display = 'title', 'description', 'id',
+    search_fields = 'title',
+
+
+admin.site.register(Category, CategoryAdmin)
+
+
 
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from datetime import datetime
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
@@ -15,12 +16,20 @@ CREATE TABLE articles(
 )
 """
 
+class Category(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
+
+
 class Article(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     image = models.ImageField(blank=True, null=True)
-
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='category_article')
     """
     CREATE TABLE comments(
         id integer,
@@ -40,6 +49,9 @@ class Article(models.Model):
     def get_image_url(self):
         return f'/media/{self.image}'
 
+    def get_absolute_url(self):
+        return reverse('article_edit', kwargs={'pk': self.pk})
+
 # class Comment(models.Model):
 #     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
 #     text = models.CharField(max_length=300)
@@ -55,21 +67,27 @@ class Article(models.Model):
 class Comment(models.Model):
     article = models.ForeignKey(Article,
                                 on_delete=models.CASCADE,
-                                related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField(default=None)
-    body = models.TextField(default="your comment")
-    created = models.DateTimeField(default=datetime.now())
-    updated = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=True)
+                                related_name='comments_article',
+                                verbose_name='article',
+                                blank=True,
+                                null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True,
+                               verbose_name='author', blank=True)
+    # email = models.EmailField(default=None)
+    text = models.TextField(default=None, verbose_name='add comment')
+    created = models.DateTimeField(auto_now=True)
+    # updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True, verbose_name='looking article')
 
     class Meta:
         ordering = ('created',)
 
     def __str__(self):
-        return f'Comment by {self.name} on {self.article}'
+        return f'Comment by {self.author} on {self.article}'
 
-
+    @property  # свой деф для ограничения выводимых букв
+    def short_text(self):
+        return self.text[:10]
 
     """
     models.CASCADE
@@ -77,4 +95,6 @@ class Comment(models.Model):
     models.SET_DEFAULT
     models.DO_NOTHING
     """
+
+
 

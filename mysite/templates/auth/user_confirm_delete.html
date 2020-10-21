@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+User delete
+{% endblock %}
+
+{% block content %}
+
+<h1>User Delete</h1>
+<form method="post">
+    {% csrf_token %}
+    Are you sure you want to delete "{{ object }}" ? <br><br>
+    <input type="submit" class="btn btn-primary" value="Yes" />
+    <a class="btn btn-danger" href="{% url 'users' %}">No</a>
+
+</form>
+{% endblock %}

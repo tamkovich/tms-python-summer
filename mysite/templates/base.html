@@ -1,4 +1,5 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +7,38 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        body
+        { background: url(/media/pattern.jpg);}
+        div {
+	        opacity: 0.95;
+ 	        background: #CCCCFF;  /* Цвет фона */
+ 	        padding: 5px; /* Поля вокруг текста */
+            }
+        img {
+            border: 3px groove #000033;
+            }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+     <div class="container">
+      <header>
+        <div class="nav-left">
+          <h6 align="right"><a href="{% url 'home' %}">My blog</a></h6>
+        </div>
+      </header>
+        {% if user.is_authenticated %}
+        <p style="color: #CC33CC; font-size: 18px;">Hi, {{ user.username }}!</p>
+         <p><a style="color: red;" href="{% url 'logout' %}">Log out</a></p>
+      {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Log In</a>
+      {% endif %}
+
+
         {% block content %}{% endblock %}
     </div>
 

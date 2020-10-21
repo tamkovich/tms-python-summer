@@ -1,9 +1,18 @@
-from django.views.generic import ListView, DetailView
-from django.shortcuts import render, get_object_or_404
+from django.utils import http
+from django.views.generic import ListView,\
+                                 DetailView
+from django.views.generic.edit import FormMixin
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.models import User
-from blog.models import Article, Comment
-from blog.forms import ArticleForm, CommentForm
+from django.urls import path
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+from blog.models import Article
+from profiles.models import Profile
+from blog.forms import ArticleForm, CommentForm, UserForm
 from django.http import request
+from django.http import HttpResponseRedirect, response
 
 
 class UserListView(ListView):
@@ -29,38 +38,9 @@ class UserDetailView(DetailView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
 
-class ArticleDetailView(DetailView):
-    model = Article
-    template_name = 'article.html'
-    slug_field = 'title'
-    slug_url_kwarg = 'title'
-
-    def article_detail(self, request, article):
-        article = get_object_or_404(Article, slug=article, status='published')
-
-        # Список активных комментариев к этой записи
-        comments = article.comments.filter(active=True)
-        new_comment = None
-        if request.method == 'POST':
-            # Комментарий был опубликован
-            comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            # Создайте объект Comment, но пока не сохраняйте в базу данных
-            new_comment = comment_form.save(commit=False)
-            # Назначить текущий пост комментарию
-            new_comment.post = article
-            # Сохранить комментарий в базе данных
-            new_comment.save()
-
-        else:
-            comment_form = CommentForm()
-
-        return render(request,
-                      'blog/post/detail.html',
-                      {'article': article,
-                       'comments': comments,
-                       'new_comment': new_comment,
-                       'comment_form': comment_form})
+class UserDelete(DeleteView):
+    model = User
+    success_url = reverse_lazy('users')
 
 class ArticleListView(ListView):
     model = Article
@@ -74,12 +54,134 @@ class ArticleListView(ListView):
 
     def post(self, request, *args, **kwargs):
         # import pdb; pdb.set_trace() #  дебаггер
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         form.is_valid()
         form.save()
         return self.get(request, *args, **kwargs)
 
 
+class ArticleDetailView(FormMixin, DetailView):
+    model = Article
+    template_name = 'article.html'
+    slug_field = 'title'
+    slug_url_kwarg = 'title'
+    form_class = CommentForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form, *args, **kwargs):
+        self.object = form.save(commit=False)
+        self.object.article = self.get_object()
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('')
+
+
+class ArticleDelete(DeleteView):
+    model = Article
+    success_url = reverse_lazy('articles')
+
+class ProfileListView(ListView):
+    model = User
+    template_name = 'users.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=None, **kwargs)
+        context['users'] = self.object_list
+        context['form'] = UserForm
+        return context
+
+    def post(self, request, *args, **kwargs):
+        # import pdb; pdb.set_trace() #  дебаггер
+        form = UserForm(request.POST, request.FILES)
+        form.is_valid()
+        form.save()
+        return self.get(request, *args, **kwargs)
+
+
+
+# class AvatarUpdate(UpdateView):
+#     model = Profile
+#     fields = ['avatar']
+#     success_url = reverse_lazy('users')
+
+
+
+# class ProfileDetailView(DetailView):
+#     model = User
+#
+# class ProfileCreate(CreateView):
+#     model = User
+#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
+#     success_url = reverse_lazy('users')
+#
+#
+# class ProfileUpdate(UpdateView):
+#     model = Profile
+#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
+#     success_url = reverse_lazy('users')
+#     slug_field = 'user'
+#     slug_url_kwarg = 'user'
+#
+# class ProfileDelete(DeleteView):
+#     model = User
+#     success_url = reverse_lazy('users')
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
+#
+# class ProfileDetailView(DetailView):
+#     model = User
+#
+# class ProfileCreate(CreateView):
+#     model = User
+#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
+#     success_url = reverse_lazy('get-user')
+#
+# class ProfileUpdate(UpdateView):
+#     model = User
+#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
+#     success_url = reverse_lazy('get-user')
+#
+# class ProfileDelete(DeleteView):
+#     model = User
+#     success_url = reverse_lazy('get-user')
+# class CommentDetailView(DetailView):
+#     model = Comment
+#     template_name = 'comment.html'
+#     slug_field = 'article'
+#     slug_url_kwarg = 'article'
+
+
+# class CommentListView(ListView):
+#     model = Comment
+#     template_name = 'comments.html'
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(object_list=None, **kwargs)
+#         context['comments'] = self.object_list
+#         context['form'] = CommentForm
+#         return context
+#
+#     def post(self, request, *args, **kwargs):
+#         # import pdb; pdb.set_trace() #  дебаггер
+#         form = CommentForm(self.request.POST)
+#         form.is_valid()
+#         form.save()
+#         return self.get(request, *args, **kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     # import pdb; pdb.set_trace() #  дебаггер
+    #     form = CommentForm(request.POST)
+    #     self.article = self.get_object()
+    #     self.author = self.request.user
+    #     form.is_valid()
+    #     form.save()
+    #     return self.get(request, *args, **kwargs)
 
 # class CommentListView(ListView):
 #     model = Comment
@@ -128,19 +230,11 @@ class ArticleListView(ListView):
 #     return render(request, 'user.html', context={
 #         'user': User.objects.get(username=username)
 #     })
+#
 
-# def create(request):
-#     print('----------------------')
-#     print(request.POST.get("title"))
-#     print(request.POST.get("description"))
-#     print('----------------------')
+# def create_comment(request):
 #     if request.POST:
-#         form = ArticleForm(request.POST)
-#         print('-------------')
-#         print(form.is_valid())
-#         print('-------------')
-#         form.save()
-#     return render(request,
-#                   'create_article.html',
-#                   context={'form': ArticleForm()}
-#                   )
+#         Comment.object.create(
+#             text=request.POST.get('text')
+#         )
+#     return render(request, 'create_comment.html')

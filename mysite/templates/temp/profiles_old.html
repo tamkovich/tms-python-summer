@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profiles
+{% endblock %}
+
+{% block content %}
+<h5 style="font-size: 13px"><strong>Count users ({{ users.all.count }})</strong></h5>
+<div class="container">
+        <div class="row">
+        {% for user in users %}
+            <div class="col-3">
+                <h1 style="color: red;">Profile:</h1>
+                <b>Email: </b>{{ user.email }} <br>
+                <b>Username: </b><a href="{% url 'get-user' username=user.username %}">{{ user.username }}</a> <br>
+                <b>First Name: </b>{{ user.first_name }} <br>
+                <b>Last Name: </b>{{ user.last_name }} <br>
+                <b>Avatar: </b><img style="border: 2px solid blue;" src="{{ user.profile.avatar.url }}" alt="" height="30px"><br>
+                    <hr>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
