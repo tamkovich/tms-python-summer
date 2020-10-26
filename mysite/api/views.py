@@ -1,9 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import permissions
 
-from api.serializers import ArticleSerializer
+from api.serializers import ArticleSerializer, CommentSerializer, ProfileSerializer
 from api.permissions import IsAuthorOrReadOnly
-from blog.models import Article
+from blog.models import Article, Comment
+from profiles.models import Profile
 
 
 class ArticleViewSet(ModelViewSet):
@@ -13,7 +14,13 @@ class ArticleViewSet(ModelViewSet):
     """ 
     для того чтобы только зарегестрированный пользователь мог заходить
     """
+class CommentViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
+class ProfileViewSet(ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 """
 from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView, \

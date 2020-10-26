@@ -30,15 +30,6 @@
           <h6 align="right"><a href="{% url 'home' %}">My blog</a></h6>
         </div>
       </header>
-        {% if user.is_authenticated %}
-        <p style="color: #CC33CC; font-size: 18px;">Hi, {{ user.username }}!</p>
-         <p><a style="color: red;" href="{% url 'logout' %}">Log out</a></p>
-      {% else %}
-        <p>You are not logged in.</p>
-        <a href="{% url 'login' %}">Log In</a>
-      {% endif %}
-
-
         {% block content %}{% endblock %}
     </div>
 

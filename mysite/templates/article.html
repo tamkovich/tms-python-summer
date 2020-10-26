@@ -9,13 +9,17 @@
     <h1 style="color: blueviolet;">{{ object.title }}</h1>
         <div class="alert-success" style="background: white; border-radius: 8px;">
             <p style="font-size: 18px" >{{ object.description }}</p>
-            <p style="font-size: 16px">Category: {{ object.category }}</p>
+            <p style="font-size: 14px">Pub date: {{ object.published }}</p>
+            <p style="font-size: 14px">Category: {{ object.category }}</p>
+            <p style="font-size: 14px">author: {{ object.author }}
+            <a href="{% url 'get-user' username=object.author %}">profile</a>
             {% if user.is_authenticated %}
                 <p><a class="btn btn-primary" href="{% url 'article_edit' object.id %}">edit article</a>
                 <a class="btn btn-danger" href="{% url 'article_delete' object.id %}">delete article</a>
                 <a class="btn btn-outline-primary" href="{% url 'article_new' %}">Create New article</a></p>
             {% endif %}
-            <p style="font-size: 14px">author: <a href="{% url 'get-user' username=object.author %}">{{ object.author }}</a></p>
+                {% if user.is_authenticated %}
+            {% endif %}
             <hr>
             <a href="{% url 'articles' %}">All Articles</a>
             <br>
@@ -30,24 +34,24 @@
 {% endif %}
     </form>
     <br>
-    <h5><strong>Comments ({{ object.comments_article.all.count }})</strong></h5>
+    <h5 align="right"><strong>Comments ({{ object.comments_article.all.count }})</strong></h5>
     <br>
     <div style="background: white; border-radius: 8px;">
         <ul>
         {% for el in object.comments_article.all %}
             <li>
-            <h3 style="font-size: 20px" >Author comment: {{ el.author }} </h3>
-            <p style="font-size: 16px" > {{ el.text }}</p>
-            <p style="font-size: 12px" >Date: {{ el.created }}</p>
+                <p style="font-size: 20px" > {{ el.text }}</p>
+                <h3 style="font-size: 12px" ><strong>Author comment:</strong> {{ el.author }} </h3>
+                <p style="font-size: 12px" ><strong>Date:</strong> {{ el.created }}</p>
             </li>
             <hr>
         {% empty %}
-        <p>No comments here yet :(</p>
+            <p>No comments here yet :( </p>
         {% endfor %}
         </ul>
     </div>
     <hr>
 
-
+<p align="right"><a class="btn btn-primary" href="{% url 'articles' %}">Back to All Articles</a></p>
 
 {% endblock %}

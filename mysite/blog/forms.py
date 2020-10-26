@@ -46,6 +46,7 @@ class CommentForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
 
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
@@ -68,7 +69,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = 'info', 'avatar',
+        fields = 'user', 'info', 'avatar',
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

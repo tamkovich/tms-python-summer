@@ -5,8 +5,8 @@ from blog.models import Article, Comment, Category
 
 class ArticleAdmin(admin.ModelAdmin):
     fields = 'title', 'description', 'author', 'category', 'image',
-    search_fields = 'title', 'category',
-    list_display = 'title', 'short_description', 'author', 'category', 'image', 'id',
+    search_fields = 'title', 'category', 'published',
+    list_display = 'title', 'short_description', 'author', 'category', 'image', 'published', 'id',
     list_filter = 'title', 'author', 'category',
 
 
@@ -21,7 +21,6 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Comment, CommentAdmin)
-
 
 class CategoryAdmin(admin.ModelAdmin):
     fields = 'title', 'description',

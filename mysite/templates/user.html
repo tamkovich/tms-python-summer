@@ -6,7 +6,6 @@ Profile User
 
 {% block content %}
 <h1 style="color: blueviolet;">Profile:</h1>
-<hr>
 <b>Email: </b>{{ object.email }} <br>
 <b>Username: </b>{{ object.username }} <br>
 <b>First Name: </b>{{ object.first_name }} <br>
@@ -31,9 +30,15 @@ Profile User
 
 <p><a class="btn btn-danger" href="{% url 'user_delete' object.id %}">delete user</a>
 <a class="btn btn-primary" href="{% url 'user_edit' object.id %}">edit user own data</a>
-<a class="btn btn-primary" href="{% url 'profile_edit' object.id %}">update profile</a>
-<hr><br><br><br>
-<p align="right"><a class="btn btn-outline-primary" href="{% url 'home' %}">Back to main</a></p>
+
+{% if object.profile %}
+    <a class="btn btn-primary" href="{% url 'profile_edit' object.profile.id %}">update profile</a>
+{% else %}
+    <a class="btn btn-primary" href="{% url 'profile_create' %}">create profile</a>
+{% endif %}
+<hr>
+<p align="right"><a class="btn btn-outline-primary" href="{% url 'home' %}">Back to main</a>
+<a class="btn btn-outline-primary" href="{% url 'users' %}">Back to users</a></p>
 {% endblock %}
 
 

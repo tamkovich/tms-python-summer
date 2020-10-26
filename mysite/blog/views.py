@@ -40,7 +40,7 @@ class UserDetailView(DetailView):
 
 class UserDelete(DeleteView):
     model = User
-    success_url = reverse_lazy('users')
+    success_url = reverse_lazy('articles')
 
 class ArticleListView(ListView):
     model = Article
@@ -102,103 +102,6 @@ class ProfileListView(ListView):
         form.is_valid()
         form.save()
         return self.get(request, *args, **kwargs)
-
-
-
-# class AvatarUpdate(UpdateView):
-#     model = Profile
-#     fields = ['avatar']
-#     success_url = reverse_lazy('users')
-
-
-
-# class ProfileDetailView(DetailView):
-#     model = User
-#
-# class ProfileCreate(CreateView):
-#     model = User
-#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
-#     success_url = reverse_lazy('users')
-#
-#
-# class ProfileUpdate(UpdateView):
-#     model = Profile
-#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
-#     success_url = reverse_lazy('users')
-#     slug_field = 'user'
-#     slug_url_kwarg = 'user'
-#
-# class ProfileDelete(DeleteView):
-#     model = User
-#     success_url = reverse_lazy('users')
-    # slug_field = 'username'
-    # slug_url_kwarg = 'username'
-#
-# class ProfileDetailView(DetailView):
-#     model = User
-#
-# class ProfileCreate(CreateView):
-#     model = User
-#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
-#     success_url = reverse_lazy('get-user')
-#
-# class ProfileUpdate(UpdateView):
-#     model = User
-#     fields = ['email', 'username', 'first_name', 'last_name', 'avatar']
-#     success_url = reverse_lazy('get-user')
-#
-# class ProfileDelete(DeleteView):
-#     model = User
-#     success_url = reverse_lazy('get-user')
-# class CommentDetailView(DetailView):
-#     model = Comment
-#     template_name = 'comment.html'
-#     slug_field = 'article'
-#     slug_url_kwarg = 'article'
-
-
-# class CommentListView(ListView):
-#     model = Comment
-#     template_name = 'comments.html'
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super().get_context_data(object_list=None, **kwargs)
-#         context['comments'] = self.object_list
-#         context['form'] = CommentForm
-#         return context
-#
-#     def post(self, request, *args, **kwargs):
-#         # import pdb; pdb.set_trace() #  дебаггер
-#         form = CommentForm(self.request.POST)
-#         form.is_valid()
-#         form.save()
-#         return self.get(request, *args, **kwargs)
-
-    # def post(self, request, *args, **kwargs):
-    #     # import pdb; pdb.set_trace() #  дебаггер
-    #     form = CommentForm(request.POST)
-    #     self.article = self.get_object()
-    #     self.author = self.request.user
-    #     form.is_valid()
-    #     form.save()
-    #     return self.get(request, *args, **kwargs)
-
-# class CommentListView(ListView):
-#     model = Comment
-#     template_name = 'comments.html'
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super().get_context_data(object_list=None, **kwargs)
-#         context['comments'] = self.object_list
-#         context['form'] = CommentForm
-#         return context
-#
-#     def post(self, request, *args, **kwargs):
-#         # import pdb; pdb.set_trace() #  дебаггер
-#         form = CommentForm(request.POST)
-#         form.is_valid()
-#         form.save()
-#         return self.get(request, *args, **kwargs)
 
 
 # def article(request):

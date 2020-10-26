@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from sqlalchemy.dialects.mssql.information_schema import views
+
 from blog import forms
 from blog.views import UserListView,\
                        UserDetailView,\
@@ -7,10 +7,6 @@ from blog.views import UserListView,\
                        ArticleListView,\
                        ProfileListView, ArticleDelete, \
                        UserDelete
-                       # ProfileDetailView,
-                       # ProfileCreate,\
-                       # ProfileUpdate,\
-                       # ProfileDelete
 
 
 urlpatterns = [
@@ -24,11 +20,7 @@ urlpatterns = [
     path('new_article/', forms.ArticleForm.article_create, name='article_new'),
     path('articles/edit/<pk>/', forms.ArticleForm.article_update, name='article_edit'),
     path('articles/delete/<pk>/', ArticleDelete.as_view(), name='article_delete'),
+    path('new_profile/', forms.ProfileForm.profile_create, name='profile_create'),
     path('profile/edit/<pk>/', forms.ProfileForm.profile_update, name='profile_edit'),
-    # path('users/<username>/', ProfileDetailView.as_view(), name='profile_view'),
-    # path('users/new/', ProfileCreate.as_view(), name='profile_new'),
-    # path('users/edit/<username>/', ProfileUpdate.as_view(), name='profile_edit'),
-    # path('users/delete/<username>/', ProfileDelete.as_view(), name='profile_delete'),
-
 
 ]

@@ -1,19 +1,47 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-
-from blog.models import Article
+from profiles.models import Profile
+from blog.models import Article, Category, Comment
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
 
+# class CategorySerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Category
+#         fields = '__all__'
+
+
 class ArticleSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
+    # category = CategorySerializer(read_only=True)
 
     class Meta:
         model = Article
-        fields = 'id', 'title', 'author', 'description', 'url'
+        fields = 'id', 'title', 'author', 'description', 'category', 'url'
+
+class CommentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Comment
+        fields = 'text', 'author', 'article', 'created', 'active',
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = 'username', 'last_name', 'first_name', 'email'
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
+    class Meta:
+        model = Profile
+        fields = 'user', 'user_profile', 'created', 'avatar', 'info',
+
+
 
 
 '''
