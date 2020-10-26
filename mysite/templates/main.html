@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Main Page
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p style="color: #CC33CC; font-size: 18px;">Hi, {{ user.username }}!</p>
+         <p><a style="color: red;" href="{% url 'logout' %}">Log out</a></p>
+      {% else %}
+        <p><strong>You are not logged in.</strong></p>
+        <a href="{% url 'login' %}">Log In</a>
+      {% endif %}
+<h5 style="font-size: 13px"><strong>Count users ({{ users.all.count }})</strong></h5><br><br>
+<h1 align="center" style="font-size: 150px;
+    font-family: Ubuntu, Helvetica, sans-serif;
+    color: #CC33CC;
+    text-shadow: 9px 7px 11px black;">Mine BLOG</h1><br><br><br><br><br>
+{% if user.is_authenticated %}
+    <p align="center"><a class="btn btn-outline-primary" style="font-size: 22px;" href="{% url 'users' %}">Look All Profiles</a>
+    <a class="btn btn-primary" style="font-size: 22px;" href="{% url 'article_new' %}">Create New article</a>
+{% endif %}
+<a class="btn btn-outline-primary" style="font-size: 22px;" href="{% url 'articles' %}">All Articles</a></p>
+
+{% endblock %}

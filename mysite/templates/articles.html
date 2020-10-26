@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Articles
+{% endblock %}
+<style>
+    img {
+     border: 3px groove #000033;
+    }
+</style>
+
+{% block content %}
+    <h1 align="center" style="font-size: 90px;
+    font-family: Ubuntu, Helvetica, sans-serif;
+    color: #CC33CC;
+    text-shadow: 5px 4px 7px black;" >All Articles</h1>
+    <h5><strong>Count articles ({{ articles.all.count }})</strong></h5>
+    <hr>
+    <br>
+    <div class="container">
+        <div class="row">
+        {% for el in articles %}
+            <div class="col-4">
+                <h3><a href="{% url 'get-article' pk=el.pk %}">{{ el.title }}</a></h3>
+                {% if el.image %}
+                    <p><img style="border: 7px groove #FFFF00;" src="{{ el.image.url }}" alt="" height="150px"></p>
+                {% else %}
+                    <p><img src="/media/No_image_available.svg" alt="" height="150px"></p>
+                {% endif %}
+                <p style="color: grey">Category: {{ el.category }}</p>
+                <p>Author: {{ el.author }}</p>
+                <hr><br>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <br>
+    <p align="right"><a class="btn btn-primary" href="{% url 'home' %}">Back to main</a></p>
+
+
+
+{% endblock %}

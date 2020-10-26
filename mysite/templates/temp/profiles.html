@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profiles
+{% endblock %}
+
+{% block content %}
+<table border="1">
+<thead>
+    <tr>
+    <th>Email</th>
+    <th>Username</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Avatar</th>
+    </tr>
+</thead>
+<tbody>
+    {% for user in users %}
+    <tr>
+    <td>{{ user.email }}</td>
+    <td><a href="{% url 'get-user' username=user.username %}">{{ user.username }}</a></td>
+    <td>{{ user.first_name }}</td>
+    <td>{{ user.last_name }}</td>
+    <td><img style="border: 2px solid blue;" src="{{ user.profile.avatar.url }}" alt="" height="30px"></td>
+    <td><a href="{% url 'profile_view' username=user.username %}">view</a></td>
+    <td><a href="{% url 'profile_edit' username=user.username %}">edit</a></td>
+    <td><a href="{% url 'profile_delete' username=user.username %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url 'profile_new' %}">New</a>
+{% endblock %}

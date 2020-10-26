@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile User
+{% endblock %}
+
+{% block content %}
+<h1 style="color: blueviolet;">Profile:</h1>
+<b>Email: </b>{{ object.email }} <br>
+<b>Username: </b>{{ object.username }} <br>
+<b>First Name: </b>{{ object.first_name }} <br>
+<b>Last Name: </b>{{ object.last_name }} <br>
+{% if object.profile.created %}
+    <b>Date created: </b>{{ object.profile.created }} <br>
+{% else %}
+
+{% endif %}
+
+{% if object.profile.info %}
+    <b>More info: </b>{{ object.profile.info }} <br>
+{% else %}
+
+{% endif %}
+
+{% if object.profile.avatar %}
+    <p align="center"><img style="border: 7px groove #FFFF00;" src="{{ object.profile.avatar.url }}" alt="" height="300px"></p>
+{% else %}
+    <p align="center" ><img src="/media/No_image_available.svg" alt="" height="300px"></p>
+{% endif %}
+
+<p><a class="btn btn-danger" href="{% url 'user_delete' object.id %}">delete user</a>
+<a class="btn btn-primary" href="{% url 'user_edit' object.id %}">edit user own data</a>
+
+{% if object.profile %}
+    <a class="btn btn-primary" href="{% url 'profile_edit' object.profile.id %}">update profile</a>
+{% else %}
+    <a class="btn btn-primary" href="{% url 'profile_create' %}">create profile</a>
+{% endif %}
+<hr>
+<p align="right"><a class="btn btn-outline-primary" href="{% url 'home' %}">Back to main</a>
+<a class="btn btn-outline-primary" href="{% url 'users' %}">Back to users</a></p>
+{% endblock %}
+
+
+
+

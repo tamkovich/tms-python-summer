@@ -1,0 +1,17 @@
+<head>
+    <meta charset="UTF-8">
+    <title> Create Article</title>
+
+</head>
+<body>
+<h1 align="center" style="color: #CC33CC; font-size: 50px;
+                                 text-shadow: 3px 2px 4px black;"> Create new Article:</h1>
+
+<form action="" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+
+</body>

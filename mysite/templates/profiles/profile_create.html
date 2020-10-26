@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create profile
+{% endblock %}
+
+{% block content %}
+<h1 align="center" style="color: #CC33CC; font-size: 50px;
+                                 text-shadow: 3px 2px 4px black;"> Create profile</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<p align="right"><a class="btn btn-outline-primary" href="{% url 'home' %}">Back to main</a>
+<a class="btn btn-outline-primary" href="{% url 'users' %}">Back to users</a></p>
+
+{% endblock %}
