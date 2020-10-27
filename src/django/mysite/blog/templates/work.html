@@ -3,6 +3,18 @@
 
 <html lang="ru">
 <head>
+
+  <style>
+       hh {
+    background: #569099;
+    padding: 10px;
+    color: #fff;
+   }
+   p {
+    margin-top: 20em; /* Отступ сверху */
+    margin-bottom: 20em; /* Отступ снизу */
+   }
+  </style>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,6 +25,7 @@
     <title></title>
 </head>
 <body>
+<p>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="/">
@@ -40,12 +53,15 @@
     </div>
   </nav>
 
+</p>
+
     <div class="row">
 
     {% for user in users %}
         <div class="col-6">
 
 {% block content %}
+            <p align="center">
             <div class="alert-warning">
             <b>Username: </b>{{ user }} <br>
             <b>Name: </b>{{user.first_name}} {{user.last_name}} <br>
@@ -54,6 +70,7 @@
 
             <img src="{{user.profile.avatar}}"  alt="" height="50px">
             </div>
+        </p>
             {% endblock %}
 
     </div>
