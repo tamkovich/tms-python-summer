@@ -5,7 +5,12 @@
     <title></title>
 </head>
 <body>
-    {{article_objects}}
+    {{user.username}}
+    {{user.lastname}}
+    {{user.id}}
+
+    {{user.profile.avatar}}
+<a href="{% url 'get-user' username=user.username %}" > {{user.username}}</a>
 
 
 </body>

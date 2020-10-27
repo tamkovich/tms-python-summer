@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+        {% for movie in all_films %}
+
+
+
+     <a href="/movie/{{name}}/"> <h1 style="color: blueviolet">Information about film </h1>
+
+    <h1>name : {{movie.name}}</h1>
+
+
+
+    <h1>about : {{movie.description}}</h1>
+<!--    <h1> description : {{movie.description}}</h1>-->
+<!--    <h1> rating : {{movie.rating}}</h1>-->
+        {% endfor %}
+    </body>
+</html>

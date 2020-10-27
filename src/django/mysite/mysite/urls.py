@@ -22,5 +22,6 @@ urlpatterns = [
     path('hello/', admin.site.urls),
     path('uuu/', log_in_out),
     path('', include('blog.urls')),
-    path('greetings/', greet)
+    path('greetings/', greet),
+    path('api/', include('api.urls'))
 ]
