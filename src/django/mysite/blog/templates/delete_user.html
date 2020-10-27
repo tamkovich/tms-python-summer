@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% block content %}
+   <div class="features">
+    <h1>Do you want to delete User?</h1>
+       <form method="post">
+           {% csrf_token %}
+
+           <button class="btn btn-success" type="submit">Yes</button>
+
+
+
+
+       </form>
+
+
+
+   </div>
+{% endblock %}
+
+</body>
+</html>

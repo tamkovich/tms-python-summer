@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for profile in all %}
+    Avatar {{ profile.avatar}}
+    User {{ profile.user}}
+    {% endfor %}
+
+{% include 'create_profile.html' %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {{user.username}}
+    {{user.lastname}}
+    {{user.id}}
+
+    {{user.profile.avatar}}
+<a href="{% url 'get-user' username=user.username %}" > {{user.username}}</a>
+
+
+</body>
+</html>

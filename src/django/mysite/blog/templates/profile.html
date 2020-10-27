@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    { % for user in users % }
+
+    <b>Profile :</b><br>
+
+                {{user.email}}
+                {{user.username}}
+                {{user.avatar}}
+<img  src = "/media/{{user.profile.avatar}}" alt="" height="250px" >
+    {% endfor %}
+
+</body>
+</html>
